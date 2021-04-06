@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
-
+import Header from "./components/header/header.jsx";
 function App() {
   return (
     <div>
@@ -8,9 +8,9 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" />
-          <Route exact path="/warehouse" />
+          <Route exact path="/warehouses" />
           <Route exact path="/inventory" />
-          <Route path="/warehouse/:id" />
+          <Route path="/warehouses/:id" />
           <Route path="/inventory/:id" />
         </Switch>
       </Router>
