@@ -3,6 +3,10 @@ const fs = require("fs");
 const { check, validationResult } = require('express-validator');
 const path = require('path').resolve(__dirname, '../data');
 
+router.get("/", (req, res) => {
+    console.log(res);
+});
+
 // PUT - FOR EDITING A WAREHOUSE
 
 router.put("/edit/:id",
@@ -69,4 +73,5 @@ router.put("/edit/:id",
     });
 
 module.exports = router;
+
 
