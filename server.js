@@ -5,9 +5,6 @@ const cors = require("cors");
 const inventoryRoutes = require("./server/routes/inventories");
 const warehouseRoutes = require("./server/routes/warehouses");
 
-const inventoryRoutes = require("./server/routes/inventories");
-const warehouseRoutes = require("./server/routes/warehouses");
-
 app.use(cors());
 
 app.use(express.json());
@@ -17,7 +14,7 @@ app.use("/api/warehouses/", warehouseRoutes);
 
 app.use("/api/inventories", inventoryRoutes);
 
-app.use("/api/warehouses", warehouseRoutes);
+
 
 app.listen(port, () => {
   console.log(`Express is running on port ${port}`);
