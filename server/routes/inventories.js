@@ -9,6 +9,5 @@ router.get("/", (req, res) => {
   };
   let list = inventoryList(`${path}/inventories.json`);
   res.send(list);
-  console.log(list);
 });
 module.exports = router;
