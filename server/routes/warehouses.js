@@ -5,14 +5,12 @@ const path = require("path").resolve(__dirname, "../data");
 
 //GET - List all warehouses
 
-const warehouseList = (filePath) => {
-  let data = fs.readFileSync(filePath);
-  return JSON.parse(data);
-};
-
 router.get("/", (req, res) => {
+  const warehouseList = (filePath) => {
+    let data = fs.readFileSync(filePath);
+    return JSON.parse(data);
+  };
   let list = warehouseList(`${path}/warehouses.json`);
-  console.log(list);
   res.send(list);
 });
 
