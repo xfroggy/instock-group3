@@ -2,7 +2,6 @@ const router = require("express").Router();
 const fs = require("fs");
 const { check, validationResult } = require("express-validator");
 const path = require("path").resolve(__dirname, "../data");
-const warehouse = "./data/warehouses.json";
 
 //GET - List all warehouses
 
@@ -12,7 +11,7 @@ const warehouseList = (filePath) => {
 };
 
 router.get("/", (req, res) => {
-  let list = warehouseList(warehouse);
+  let list = warehouseList(`${path}/warehouses.json`);
   console.log(list);
   res.send(list);
 });
