@@ -6,7 +6,6 @@ const { v4: uuidv4 } = require('uuid');
 
 // get request for a single warehouse
 router.get("/edit/:id", (req, res) => {
-    //   console.log(res);
     // console.log(path+"/warehouses.json");
     const warehousesData = fs.readFileSync(path + "/warehouses.json", "utf-8");
     const warehouseArr = JSON.parse(warehousesData);
@@ -114,7 +113,7 @@ router.put("/edit/:id",
         }
         response.status(201).send(`Validation passed and here's the id you need to update: ${request.params.id}, ${request.body.warehouseName}, ${request.body.address}, ${request.body.city},${request.body.country},${request.body.contactName}, ${request.body.position}, ${request.body.phone}, ${request.body.email}`);
 
-        // // READ THE JSON FILE AND PARSE
+        // READ THE JSON FILE AND PARSE
         fs.readFile(`${path}/warehouses.json`, 'utf8', ((err, warehouseData) => {
             if (err) {
                 console.error(err);
