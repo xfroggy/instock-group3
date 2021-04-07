@@ -1,13 +1,21 @@
 const router = require("express").Router();
 const fs = require("fs");
-const { check, validationResult } = require('express-validator');
-const path = require('path').resolve(__dirname, '../data');
+const { check, validationResult } = require("express-validator");
+const path = require("path").resolve(__dirname, "../data");
+
+//GET - List all warehouses
 
 router.get("/", (req, res) => {
-    console.log(res);
+  const warehouseList = (filePath) => {
+    let data = fs.readFileSync(filePath);
+    return JSON.parse(data);
+  };
+  let list = warehouseList(`${path}/warehouses.json`);
+  res.send(list);
 });
 
 // PUT - FOR EDITING A WAREHOUSE
+
 
 router.put("/edit/:id",
     [
@@ -81,6 +89,5 @@ router.put("/edit/:id",
         }))
     });
 
+
 module.exports = router;
-
-
