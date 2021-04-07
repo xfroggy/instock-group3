@@ -1,0 +1,20 @@
+@use '../../partials/partials' as *;
+@use '../../partials/mixins.scss' as *;
+
+.card__container {
+    position: absolute;
+    left: 4.27%;
+    right: 4.27%;
+    top: 11.79%;
+    bottom: 8.32%;
+
+    /* White */
+
+    background: #FFFFFF;
+    /* Card Shadow */
+
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+}
+
+

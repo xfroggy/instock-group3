@@ -6,11 +6,10 @@ import axios from 'axios';
 const WarehouseEdit = () => {
     return (
         <div className="card__container">
-            <div className="card__header--container">
-                <div className="card__header--row">
-                    <div className="card__arrow"></div>
-                    <h1 className="card__header--title">Edit Warehouse</h1>
-                </div>
+            <div className
+                className="card__header--container">
+                <div className="card__arrow"></div>
+                <h1 className="card__header--title">Add Warehouse</h1>
             </div>
         </div>
     )
