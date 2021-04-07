@@ -3,6 +3,19 @@ const fs = require("fs");
 const { check, validationResult } = require("express-validator");
 const path = require("path").resolve(__dirname, "../data");
 
+// get request for a single warehouse
+router.get("/edit/:id", (req, res) => {
+  //   console.log(res);
+ // console.log(path+"/warehouses.json");
+  const warehousesData = fs.readFileSync(path+"/warehouses.json", "utf-8");
+  const warehouseArr = JSON.parse(warehousesData);
+  const singleWarehouse = warehouseArr.find(
+    (item) => item.id === req.params.id
+  );
+  res.send(singleWarehouse);
+
+
+
 //GET - List all warehouses
 
 router.get("/", (req, res) => {
@@ -12,6 +25,7 @@ router.get("/", (req, res) => {
   };
   let list = warehouseList(`${path}/warehouses.json`);
   res.send(list);
+
 });
 
 // PUT - FOR EDITING A WAREHOUSE
@@ -44,11 +58,8 @@ router.put("/edit/:id",
             }
             warehouseData = JSON.parse(warehouseData);
 
-
             //FIND WAREHOUSE BY ID
-            // let currentWarehouse = warehouseData.find((warehouse) => warehouse.ed == request.params.id);
-
-
+          
             let currentIdIndex = warehouseData.findIndex((obj => obj.id == request.params.id));
 
             console.log(currentIdIndex);
@@ -88,6 +99,7 @@ router.put("/edit/:id",
             }
         }))
     });
+
 
 
 module.exports = router;
