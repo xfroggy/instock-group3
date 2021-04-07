@@ -33,7 +33,7 @@ function warehouseDetails() {
       </div>
       <div className="inventory">
         <div className="inventory__cat">
-          <h3>{this.state.inventoryitem</h3>
+          {/* <h3>{this.state.inventoryitem}</h3> */}
           <h3>CATEGORY</h3>
           <h3>STATUS</h3>
           <h3>QTY</h3>

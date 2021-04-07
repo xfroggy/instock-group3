@@ -1,0 +1,83 @@
+@import "../../../partials/mixins.scss";
+@import "../../../partials/partials.scss";
+
+.header {
+  h4 {
+    margin: 0;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $graphite;
+    width: 100vw;
+    height: 8.5rem;
+  }
+  &__nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    color: $white;
+  }
+  &__warehouse {
+    font-family: Titillium Web Regular;
+    color: $white;
+    text-decoration: none;
+    width: 10.25rem;
+    height: 2.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      text-decoration: underline;
+    }
+    &--active {
+      background-color: $black;
+      border-radius: 1.25rem;
+    }
+  }
+  &__inventory {
+    font-family: Titillium Web Regular;
+    color: $white;
+    text-decoration: none;
+    width: 10.25rem;
+    height: 2.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--active {
+      background-color: $black;
+      border-radius: 1.25rem;
+    }
+
+    &:hover {
+      text-decoration: $white underline;
+    }
+  }
+  @include tablet {
+    &__logo {
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      height: 5.75rem;
+    }
+    &__nav {
+      width: auto;
+      padding-right: 2rem;
+    }
+    &__logoImg {
+      padding-left: 2rem;
+    }
+  }
+  @include desktop {
+    &__logoImg {
+      padding-left: 48%;
+    }
+    &__nav {
+      padding-right: 6%;
+    }
+  }
+}
