@@ -10,7 +10,7 @@ const WarehouseEdit = () => {
                 <div className="card__arrow"></div>
                 <h1 className="card__header--title">Edit Warehouse</h1>
             </div>
-        </div>
+        </div>git 
     )
 }
 
