@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 
 // get request for a single warehouse
 router.get("/edit/:id", (req, res) => {
+
     // console.log(path+"/warehouses.json");
     const warehousesData = fs.readFileSync(path + "/warehouses.json", "utf-8");
     const warehouseArr = JSON.parse(warehousesData);
@@ -16,9 +17,11 @@ router.get("/edit/:id", (req, res) => {
 });
 
 
+
 //GET - List all warehouses
 
 router.get("/", (req, res) => {
+
     const warehouseList = (filePath) => {
         let data = fs.readFileSync(filePath);
         return JSON.parse(data);
@@ -26,9 +29,11 @@ router.get("/", (req, res) => {
     let list = warehouseList(`${path}/warehouses.json`);
     res.send(list);
 
+
 });
 
 // POST - ADD A WAREHOUSE
+
 
 router.post("/add",
     [
@@ -161,8 +166,9 @@ router.put("/edit/:id",
                 })
             }
         }))
+
     });
-
-
+  }
+);
 
 module.exports = router;
