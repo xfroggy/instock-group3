@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./WarehousePage.scss";
+import axios from "axios";
 
 export default function WarehousePage() {
+  const [data, setData] = useState([]);
+  const url = "http://localhost:8080/api/";
+  useEffect(() => {
+    getAllWarehouses();
+  }, []);
+
+  const getAllWarehouses = () => {
+    axios
+      .get(`${url}warehouses`)
+      .then((res) => {
+        const allWarehouses = res.data;
+        setData(allWarehouses);
+        console.log(setData);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
   return (
     <>
       <section className="warehouse__parent">
