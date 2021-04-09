@@ -1,0 +1,373 @@
+@import "../../partials/mixins.scss";
+@import "../../partials/partials.scss";
+
+.warehouse {
+  background: #d1d1d1;
+  &__name {
+    font-family: Titillum Web, sans-serif;
+  }
+  &__background {
+    background-color: $graphite;
+    position: absolute;
+    height: 5.875rem;
+    width: 100%;
+    &--gray {
+      background-color: $light-gray;
+      width: 100%;
+      height: 50.25rem;
+    }
+  }
+  &__title {
+    margin: 0rem;
+    font-family: Titillum Web, sans-serif;
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    margin: 2rem 0rem 1rem 1.5rem;
+  }
+  &__searchBar {
+    background-image: url(../../assets/icons/search-24px.svg);
+    background-repeat: no-repeat;
+    background-position-x: 16.25rem;
+    background-position-y: 0.3125rem;
+    width: 18.4375rem;
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    box-sizing: border-box;
+    border: 1px solid $cloud;
+    margin: 0rem 0rem 1rem 1.5rem;
+  }
+  &__firstRow {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    &--box {
+      display: flex;
+      justify-content: center;
+      width: 90%;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 21.4375rem;
+    background-color: $white;
+    position: absolute;
+    box-shadow: 0rem 0.125rem 0.3125rem rgb(19 24 44 / 10%);
+    border-radius: 0.1875rem;
+  }
+  &__textDec {
+    text-decoration: none;
+  }
+  &__box--row {
+    button {
+      width: 18.4375rem;
+      height: 2.25rem;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      padding: 0.5rem 1rem;
+      margin: 0rem 0rem 1.5rem 1.5rem;
+      border-radius: 1.25rem;
+      background-color: #2e66e5;
+      color: #ffffff;
+      border: none;
+    }
+  }
+  &__searchnButton {
+    display: flex;
+    flex-direction: column;
+  }
+  &__tableRow {
+    border-top: 1px solid $cloud;
+  }
+
+  &__rowAlign {
+    display: flex;
+    flex-direction: column;
+    &--addy {
+      display: flex;
+      flex-direction: column;
+    }
+    &--name {
+      display: flex;
+      flex-direction: column;
+    }
+    &--info {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__text {
+    font-family: Titillum Web, sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+
+    &--column {
+      font-family: Titillum Web, sans-serif;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+    }
+  }
+  &__deleteImg {
+    background-image: url(../../assets/icons/delete_outline-24px.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 0.875rem;
+    height: 1.125rem;
+  }
+  &__editImg {
+    background-image: url(../../assets/icons/edit-24px.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+  &__imgBox {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.1875rem 1.8125rem 1.6875rem 1.8125rem;
+  }
+
+  @include mobile {
+    &__bar {
+      display: none;
+    }
+    &__label {
+      color: $slate;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.6875rem;
+      line-height: 1rem;
+      margin-top: 1rem;
+    }
+    &__name {
+      color: $indigo;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      background-image: url(../../assets/icons/chevron_right-24px.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      padding-right: 1.25rem;
+      height: 1.375rem;
+      width: 4.9375rem;
+      text-align: right;
+    }
+    &__text {
+      width: 8.4375rem;
+    }
+    &__tableColumn {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1.5rem;
+    }
+    &__tableFlex {
+      display: flex;
+    }
+  }
+  @include tablet {
+    &__label {
+      display: none;
+    }
+    &__tableColumn {
+      display: flex;
+      flex-direction: row;
+    }
+    &__tableFlex {
+      display: flex;
+      flex-direction: row;
+    }
+    &__container {
+      width: 44rem;
+      height: 50.25rem;
+    }
+    &__title {
+      font-size: 2rem;
+      line-height: 2.5rem;
+      margin: 2rem 0rem 1.375rem 2rem;
+    }
+    &__searchBar {
+      width: 11.5625rem;
+      height: 2.375rem;
+      border-radius: 1.25rem;
+      box-sizing: border-box;
+      border: 1px solid $cloud;
+      margin: 2rem 1rem 1.5rem 6.25rem;
+    }
+    &__bar {
+      width: 100%;
+      background-color: #f7f8f9;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.125rem;
+      display: flex;
+      justify-content: space-evenly;
+      color: $slate;
+      &--arrow {
+        background-image: url(../../assets/icons/sort-24px.svg);
+        background-repeat: no-repeat;
+        background-position: right;
+        padding-right: 1.875rem;
+      }
+    }
+    &__box--row {
+      display: flex;
+      justify-content: space-between;
+      button {
+        height: 2.375rem;
+        width: 10.5rem;
+        font-family: Titillium Web;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+        padding: 0.5rem 1rem;
+        margin: 2rem 2rem 1.5rem 0rem;
+        border-radius: 1.25rem;
+        background-color: $indigo;
+        color: $white;
+        border: none;
+      }
+    }
+    &__searchnButton {
+      display: flex;
+      flex-direction: row;
+    }
+    &__tableRow {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $cloud;
+      height: 6.25rem;
+    }
+    &__rowAlign {
+      margin-left: 2rem;
+      width: 6.25rem;
+
+      &--addy {
+        margin-left: 1.875rem;
+        width: 6.25rem;
+        display: flex;
+        flex-direction: column;
+      }
+      &--name {
+        margin-left: 0.875rem;
+        width: 5.625rem;
+      }
+      &--info {
+        margin-left: 3.9375rem;
+        width: 7.625rem;
+      }
+    }
+    &__text {
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.125rem;
+      &--column {
+        font-family: Titillum Web, sans-serif;
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &__name {
+      font-family: Titillium Web Regular;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      background-image: url(../../assets/icons/chevron_right-24px.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      padding-right: 1.25rem;
+      height: 1.375rem;
+      color: $indigo;
+    }
+    &__deleteImg {
+      background-image: url(../../assets/icons/delete_outline-24px.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 0.875rem;
+      height: 1.125rem;
+    }
+    &__editImg {
+      background-image: url(../../assets/icons/edit-24px.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+    &__imgBox {
+      display: flex;
+      justify-content: space-evenly;
+      width: 4.6875rem;
+      margin-left: 3.75rem;
+    }
+  }
+  @include desktop {
+    &__box {
+      &--row {
+        button {
+          width: 10.5rem;
+          height: 2.375rem;
+        }
+      }
+    }
+    &__searchBar {
+      width: 17.125rem;
+      height: 2.375rem;
+      background-position-x: 14.9375rem;
+      background-position-y: 0.4375rem;
+    }
+    &__container {
+      width: 63.75rem;
+      height: 42rem;
+    }
+    &__rowAlign {
+      margin-left: 5.0625rem;
+      &--addy {
+        margin-left: 5.375rem;
+        flex-direction: row;
+        width: 12.5rem;
+      }
+      &--name {
+        margin-left: 3.25rem;
+      }
+      &--info {
+        margin-left: 6rem;
+        width: 8.5rem;
+      }
+    }
+    &__imgBox {
+      margin-left: 5.1875rem;
+    }
+    &__bar {
+      justify-content: flex-start;
+      height: 2.5rem;
+      align-items: center;
+      &--warehouse {
+        margin-left: 5.0625rem;
+      }
+      &--addy {
+        margin-left: 4.875rem;
+      }
+      &--name {
+        margin-left: 10.25rem;
+      }
+      &--info {
+        margin-left: 3.875rem;
+      }
+      &--action {
+        margin-left: 3.25rem;
+      }
+    }
+    &__text {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      &--column {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+      }
+    }
+  }
+}

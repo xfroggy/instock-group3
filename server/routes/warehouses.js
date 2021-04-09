@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 // get request for a single warehouse
 router.get("/edit/:id", (req, res) => {
 
+
     // console.log(path+"/warehouses.json");
     const warehousesData = fs.readFileSync(path + "/warehouses.json", "utf-8");
     const warehouseArr = JSON.parse(warehousesData);
@@ -18,9 +19,11 @@ router.get("/edit/:id", (req, res) => {
 
 
 
+
 //GET - List all warehouses
 
 router.get("/", (req, res) => {
+
 
     const warehouseList = (filePath) => {
         let data = fs.readFileSync(filePath);
@@ -28,6 +31,7 @@ router.get("/", (req, res) => {
     };
     let list = warehouseList(`${path}/warehouses.json`);
     res.send(list);
+
 
 
 });
@@ -53,6 +57,7 @@ router.post("/add",
             return response.status(522).json({ errors: errors.array() })
         }
         response.status(201).send(`Validation passed and here's the id you need to update:  ${request.body.warehouseName}, ${request.body.address}, ${request.body.city},${request.body.country},${request.body.contactName}, ${request.body.position}, ${request.body.phone}, ${request.body.email}`);
+
 
         // READ THE JSON FILE AND PARSE
         fs.readFile(`${path}/warehouses.json`, 'utf8', ((err, warehouseData) => {
@@ -166,6 +171,7 @@ router.put("/edit/:id",
                 })
             }
         }))
+
 
     });
 
