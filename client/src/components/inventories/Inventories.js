@@ -18,7 +18,6 @@ const ItemDetail = ({ match }) => {
   return (
     <div className="inventory__container">
       <h1>{inventoryItem.itemName}</h1>
-      <span className="inventory__container--line"></span>
       <div>{inventoryItem.description}</div>
       <div>{inventoryItem.category}</div>
       <div>{inventoryItem.status}</div>
