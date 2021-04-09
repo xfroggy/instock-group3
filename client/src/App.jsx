@@ -2,21 +2,22 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/header/header.jsx";
 import WarehouseDetails from "./components/warehouse/WarehouseDetails";
+import ItemDetail from "./components/inventories/Inventories";
 
 function App() {
   return (
     <div>
       <Router>
         <Header />
-        <WarehouseDetails />
+
         <Switch>
           <Route exact path="/" />
 
           <Route exact path="/warehouses" />
 
           <Route exact path="/inventory" />
-          <Route path="/warehouses/:id" />
-          <Route path="/inventory/:id" />
+          <Route path="/warehouses/:id" component={WarehouseDetails} />
+          <Route exact path="/inventory/:id" component={ItemDetail} />
         </Switch>
       </Router>
     </div>
