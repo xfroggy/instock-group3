@@ -3,37 +3,39 @@
 
 .warehouse {
   background: #d1d1d1;
-
+  &__name {
+    font-family: Titillum Web, sans-serif;
+  }
   &__background {
     background-color: $graphite;
     position: absolute;
-    height: 94px;
+    height: 5.875rem;
     width: 100%;
     &--gray {
       background-color: $light-gray;
       width: 100%;
-      height: 804px;
+      height: 50.25rem;
     }
   }
   &__title {
     margin: 0rem;
-    font-family: Titillium Web;
+    font-family: Titillum Web, sans-serif;
     font-weight: 600;
-    font-size: 28px;
-    line-height: 36px;
-    margin: 32px 0px 16px 24px;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    margin: 2rem 0rem 1rem 1.5rem;
   }
   &__searchBar {
     background-image: url(../../assets/icons/search-24px.svg);
     background-repeat: no-repeat;
-    background-position-x: 260px;
-    background-position-y: 5px;
-    width: 295px;
-    height: 36px;
-    border-radius: 20px;
+    background-position-x: 16.25rem;
+    background-position-y: 0.3125rem;
+    width: 18.4375rem;
+    height: 2.25rem;
+    border-radius: 1.25rem;
     box-sizing: border-box;
     border: 1px solid $cloud;
-    margin: 0px 0px 16px 24px;
+    margin: 0rem 0rem 1rem 1.5rem;
   }
   &__firstRow {
     display: flex;
@@ -50,23 +52,25 @@
   &__container {
     display: flex;
     flex-direction: column;
-    width: 343px;
+    width: 21.4375rem;
     background-color: $white;
     position: absolute;
-    height: 1575px;
-    box-shadow: 0px 2px 5px rgb(19 24 44 / 10%);
-    border-radius: 3px;
+    box-shadow: 0rem 0.125rem 0.3125rem rgb(19 24 44 / 10%);
+    border-radius: 0.1875rem;
+  }
+  &__textDec {
+    text-decoration: none;
   }
   &__box--row {
     button {
-      width: 295px;
-      height: 36px;
-      font-family: Titillium Web;
-      font-size: 14px;
-      line-height: 22px;
-      padding: 8px 16px;
-      margin: 0px 0px 0px 24px;
-      border-radius: 20px;
+      width: 18.4375rem;
+      height: 2.25rem;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      padding: 0.5rem 1rem;
+      margin: 0rem 0rem 1.5rem 1.5rem;
+      border-radius: 1.25rem;
       background-color: #2e66e5;
       color: #ffffff;
       border: none;
@@ -98,35 +102,36 @@
   }
 
   &__text {
-    font-size: 13px;
-    line-height: 20px;
+    font-family: Titillum Web, sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
 
     &--column {
+      font-family: Titillum Web, sans-serif;
       display: flex;
       flex-direction: column;
-      font-size: 13px;
-      line-height: 20px;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
     }
   }
   &__deleteImg {
     background-image: url(../../assets/icons/delete_outline-24px.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 14px;
-    height: 18px;
+    width: 0.875rem;
+    height: 1.125rem;
   }
   &__editImg {
     background-image: url(../../assets/icons/edit-24px.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 18px;
-    height: 18px;
+    width: 1.125rem;
+    height: 1.125rem;
   }
   &__imgBox {
     display: flex;
     justify-content: space-between;
-    width: 255px;
-    margin-left: 29px;
+    margin: 1.1875rem 1.8125rem 1.6875rem 1.8125rem;
   }
 
   @include mobile {
@@ -135,27 +140,30 @@
     }
     &__label {
       color: $slate;
-      font-family: Titillium Web Regular;
-      font-size: 12px;
-      line-height: 18px;
-      margin-top: 16px;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.6875rem;
+      line-height: 1rem;
+      margin-top: 1rem;
     }
     &__name {
       color: $indigo;
-      font-size: 13px;
-      line-height: 20px;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
       background-image: url(../../assets/icons/chevron_right-24px.svg);
       background-repeat: no-repeat;
       background-position: right;
-      padding-right: 20px;
-      height: 22px;
-      width: 79px;
+      padding-right: 1.25rem;
+      height: 1.375rem;
+      width: 4.9375rem;
       text-align: right;
+    }
+    &__text {
+      width: 8.4375rem;
     }
     &__tableColumn {
       display: flex;
       flex-direction: column;
-      margin-left: 24px;
+      margin-left: 1.5rem;
     }
     &__tableFlex {
       display: flex;
@@ -174,28 +182,28 @@
       flex-direction: row;
     }
     &__container {
-      width: 704px;
-      height: 804px;
+      width: 44rem;
+      height: 50.25rem;
     }
     &__title {
-      font-size: 32px;
-      line-height: 40px;
-      margin: 32px 0px 22px 32px;
+      font-size: 2rem;
+      line-height: 2.5rem;
+      margin: 2rem 0rem 1.375rem 2rem;
     }
     &__searchBar {
-      width: 185px;
-      height: 38px;
-      border-radius: 20px;
+      width: 11.5625rem;
+      height: 2.375rem;
+      border-radius: 1.25rem;
       box-sizing: border-box;
       border: 1px solid $cloud;
-      margin: 32px 16px 24px 100px;
+      margin: 2rem 1rem 1.5rem 6.25rem;
     }
     &__bar {
       width: 100%;
       background-color: #f7f8f9;
-      font-family: Titillium Web Regular;
-      font-size: 12px;
-      line-height: 18px;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.125rem;
       display: flex;
       justify-content: space-evenly;
       color: $slate;
@@ -210,14 +218,14 @@
       display: flex;
       justify-content: space-between;
       button {
-        height: 38px;
-        width: 168px;
+        height: 2.375rem;
+        width: 10.5rem;
         font-family: Titillium Web;
-        font-size: 14px;
-        line-height: 22px;
-        padding: 8px 16px;
-        margin: 32px 32px 24px 0px;
-        border-radius: 20px;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+        padding: 0.5rem 1rem;
+        margin: 2rem 2rem 1.5rem 0rem;
+        border-radius: 1.25rem;
         background-color: $indigo;
         color: $white;
         border: none;
@@ -231,133 +239,134 @@
       display: flex;
       align-items: center;
       border-bottom: 1px solid $cloud;
-      height: 100px;
+      height: 6.25rem;
     }
     &__rowAlign {
-      margin-left: 32px;
-      width: 100px;
+      margin-left: 2rem;
+      width: 6.25rem;
 
       &--addy {
-        margin-left: 30px;
-        width: 100px;
+        margin-left: 1.875rem;
+        width: 6.25rem;
         display: flex;
         flex-direction: column;
       }
       &--name {
-        margin-left: 14px;
-        width: 90px;
+        margin-left: 0.875rem;
+        width: 5.625rem;
       }
       &--info {
-        margin-left: 63px;
-        width: 125px;
+        margin-left: 3.9375rem;
+        width: 7.625rem;
       }
     }
     &__text {
-      font-family: Titillium Web Regular;
-      font-size: 12px;
-      line-height: 18px;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.125rem;
       &--column {
-        font-family: Titillium Web Regular;
-        font-size: 12px;
-        line-height: 18px;
+        font-family: Titillum Web, sans-serif;
+        font-size: 0.75rem;
+        line-height: 1.125rem;
         display: flex;
         flex-direction: column;
       }
     }
     &__name {
       font-family: Titillium Web Regular;
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
       background-image: url(../../assets/icons/chevron_right-24px.svg);
       background-repeat: no-repeat;
       background-position: right;
-      padding-right: 20px;
-      height: 22px;
+      padding-right: 1.25rem;
+      height: 1.375rem;
       color: $indigo;
     }
     &__deleteImg {
       background-image: url(../../assets/icons/delete_outline-24px.svg);
       background-repeat: no-repeat;
       background-size: cover;
-      width: 14px;
-      height: 18px;
+      width: 0.875rem;
+      height: 1.125rem;
     }
     &__editImg {
       background-image: url(../../assets/icons/edit-24px.svg);
       background-repeat: no-repeat;
       background-size: cover;
-      width: 18px;
-      height: 18px;
+      width: 1.125rem;
+      height: 1.125rem;
     }
     &__imgBox {
       display: flex;
       justify-content: space-evenly;
-      width: 75px;
-      margin-left: 60px;
+      width: 4.6875rem;
+      margin-left: 3.75rem;
     }
   }
   @include desktop {
     &__box {
       &--row {
         button {
-          width: 168px;
-          height: 38px;
+          width: 10.5rem;
+          height: 2.375rem;
         }
       }
     }
     &__searchBar {
-      width: 274px;
-      height: 38px;
-      background-position-x: 239px;
-      background-position-y: 7px;
+      width: 17.125rem;
+      height: 2.375rem;
+      background-position-x: 14.9375rem;
+      background-position-y: 0.4375rem;
     }
     &__container {
-      width: 1020px;
-      height: 672px;
+      width: 63.75rem;
+      height: 42rem;
     }
     &__rowAlign {
-      margin-left: 81px;
+      margin-left: 5.0625rem;
       &--addy {
-        margin-left: 86px;
+        margin-left: 5.375rem;
         flex-direction: row;
-        width: 200px;
+        width: 12.5rem;
       }
       &--name {
-        margin-left: 52px;
+        margin-left: 3.25rem;
       }
       &--info {
-        margin-left: 96px;
+        margin-left: 6rem;
+        width: 8.5rem;
       }
     }
     &__imgBox {
-      margin-left: 83px;
+      margin-left: 5.1875rem;
     }
     &__bar {
       justify-content: flex-start;
-      height: 40px;
+      height: 2.5rem;
       align-items: center;
       &--warehouse {
-        margin-left: 81px;
+        margin-left: 5.0625rem;
       }
       &--addy {
-        margin-left: 82px;
+        margin-left: 4.875rem;
       }
       &--name {
-        margin-left: 168px;
+        margin-left: 10.25rem;
       }
       &--info {
-        margin-left: 62px;
+        margin-left: 3.875rem;
       }
       &--action {
-        margin-left: 52px;
+        margin-left: 3.25rem;
       }
     }
     &__text {
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
       &--column {
-        font-size: 14px;
-        line-height: 22px;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
       }
     }
   }

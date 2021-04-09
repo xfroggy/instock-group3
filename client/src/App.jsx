@@ -8,14 +8,11 @@ function App() {
     <div>
       <Router>
         <Header />
-        {/* <WarehouseDetails /> */}
         <Switch>
           <Route exact path="/" />
-
           <Route exact path="/warehouses" component={WarehousePage} />
-
           <Route exact path="/inventory" />
-          <Route path="/warehouses/:id" />
+          <Route path="/warehouses/:id" component={WarehouseDetails} />
           <Route path="/inventory/:id" />
         </Switch>
       </Router>

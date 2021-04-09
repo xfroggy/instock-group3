@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./WarehousePage.scss";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function WarehousePage() {
   const [data, setData] = useState([]);
@@ -62,7 +63,14 @@ export default function WarehousePage() {
                         <div className="warehouse__tableColumn">
                           <div className="warehouse__rowAlign">
                             <span className="warehouse__label">WAREHOUSE</span>
-                            <span className="warehouse__name">{list.name}</span>
+                            <Link
+                              to={`/warehouses/${list.id}`}
+                              className="warehouse__textDec"
+                            >
+                              <span className="warehouse__name">
+                                {list.name}
+                              </span>
+                            </Link>
                           </div>
                           <div className="warehouse__rowAlign--addy">
                             <span className="warehouse__label">ADDRESS</span>
