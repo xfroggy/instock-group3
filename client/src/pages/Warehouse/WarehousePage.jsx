@@ -38,7 +38,9 @@ export default function WarehousePage() {
                       placeholder="   Search..."
                       className="warehouse__searchBar"
                     ></input>
-                    <button>+Add New Warehouse</button>
+                    <Link to="/warehouses/add">
+                      <button>+Add New Warehouse</button>
+                    </Link>
                   </div>
                 </div>
                 <div className="warehouse__bar">
@@ -101,7 +103,9 @@ export default function WarehousePage() {
                       </div>
                       <div className="warehouse__imgBox">
                         <div className="warehouse__deleteImg"></div>
-                        <div className="warehouse__editImg"></div>
+                        <Link to={`/warehouses/edit/${list.id}`}>
+                          <div className="warehouse__editImg"></div>
+                        </Link>
                       </div>
                     </div>
                   ))}
