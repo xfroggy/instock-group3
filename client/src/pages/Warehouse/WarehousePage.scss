@@ -2,14 +2,38 @@
 @import "../../partials/partials.scss";
 
 .warehouse {
+  background: #d1d1d1;
+
   &__background {
     background-color: $graphite;
     position: absolute;
     height: 94px;
     width: 100%;
+    &--gray {
+      background-color: $light-gray;
+      width: 100%;
+      height: 804px;
+    }
   }
   &__title {
     margin: 0rem;
+    font-family: Titillium Web;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    margin: 32px 0px 16px 24px;
+  }
+  &__searchBar {
+    background-image: url(../../assets/icons/search-24px.svg);
+    background-repeat: no-repeat;
+    background-position-x: 260px;
+    background-position-y: 5px;
+    width: 295px;
+    height: 36px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border: 1px solid $cloud;
+    margin: 0px 0px 16px 24px;
   }
   &__firstRow {
     display: flex;
@@ -26,22 +50,146 @@
   &__container {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 343px;
     background-color: $white;
     position: absolute;
-    height: 80%;
-    border: 2px solid;
+    height: 1575px;
+    box-shadow: 0px 2px 5px rgb(19 24 44 / 10%);
+    border-radius: 3px;
+  }
+  &__box--row {
+    button {
+      width: 295px;
+      height: 36px;
+      font-family: Titillium Web;
+      font-size: 14px;
+      line-height: 22px;
+      padding: 8px 16px;
+      margin: 0px 0px 0px 24px;
+      border-radius: 20px;
+      background-color: #2e66e5;
+      color: #ffffff;
+      border: none;
+    }
   }
   &__searchnButton {
     display: flex;
     flex-direction: column;
   }
+  &__tableRow {
+    border-top: 1px solid $cloud;
+  }
+
+  &__rowAlign {
+    display: flex;
+    flex-direction: column;
+    &--addy {
+      display: flex;
+      flex-direction: column;
+    }
+    &--name {
+      display: flex;
+      flex-direction: column;
+    }
+    &--info {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    line-height: 20px;
+
+    &--column {
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+  &__deleteImg {
+    background-image: url(../../assets/icons/delete_outline-24px.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 14px;
+    height: 18px;
+  }
+  &__editImg {
+    background-image: url(../../assets/icons/edit-24px.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 18px;
+    height: 18px;
+  }
+  &__imgBox {
+    display: flex;
+    justify-content: space-between;
+    width: 255px;
+    margin-left: 29px;
+  }
+
   @include mobile {
     &__bar {
       display: none;
     }
+    &__label {
+      color: $slate;
+      font-family: Titillium Web Regular;
+      font-size: 12px;
+      line-height: 18px;
+      margin-top: 16px;
+    }
+    &__name {
+      color: $indigo;
+      font-size: 13px;
+      line-height: 20px;
+      background-image: url(../../assets/icons/chevron_right-24px.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      padding-right: 20px;
+      height: 22px;
+      width: 79px;
+      text-align: right;
+    }
+    &__tableColumn {
+      display: flex;
+      flex-direction: column;
+      margin-left: 24px;
+    }
+    &__tableFlex {
+      display: flex;
+    }
   }
   @include tablet {
+    &__label {
+      display: none;
+    }
+    &__tableColumn {
+      display: flex;
+      flex-direction: row;
+    }
+    &__tableFlex {
+      display: flex;
+      flex-direction: row;
+    }
+    &__container {
+      width: 704px;
+      height: 804px;
+    }
+    &__title {
+      font-size: 32px;
+      line-height: 40px;
+      margin: 32px 0px 22px 32px;
+    }
+    &__searchBar {
+      width: 185px;
+      height: 38px;
+      border-radius: 20px;
+      box-sizing: border-box;
+      border: 1px solid $cloud;
+      margin: 32px 16px 24px 100px;
+    }
     &__bar {
       width: 100%;
       background-color: #f7f8f9;
@@ -50,25 +198,71 @@
       line-height: 18px;
       display: flex;
       justify-content: space-evenly;
+      color: $slate;
       &--arrow {
         background-image: url(../../assets/icons/sort-24px.svg);
         background-repeat: no-repeat;
         background-position: right;
-
         padding-right: 1.875rem;
       }
     }
+    &__box--row {
+      display: flex;
+      justify-content: space-between;
+      button {
+        height: 38px;
+        width: 168px;
+        font-family: Titillium Web;
+        font-size: 14px;
+        line-height: 22px;
+        padding: 8px 16px;
+        margin: 32px 32px 24px 0px;
+        border-radius: 20px;
+        background-color: $indigo;
+        color: $white;
+        border: none;
+      }
+    }
+    &__searchnButton {
+      display: flex;
+      flex-direction: row;
+    }
     &__tableRow {
       display: flex;
-      justify-content: space-evenly;
       align-items: center;
       border-bottom: 1px solid $cloud;
       height: 100px;
+    }
+    &__rowAlign {
+      margin-left: 32px;
+      width: 100px;
+
+      &--addy {
+        margin-left: 30px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+      }
+      &--name {
+        margin-left: 14px;
+        width: 90px;
+      }
+      &--info {
+        margin-left: 63px;
+        width: 125px;
+      }
     }
     &__text {
       font-family: Titillium Web Regular;
       font-size: 12px;
       line-height: 18px;
+      &--column {
+        font-family: Titillium Web Regular;
+        font-size: 12px;
+        line-height: 18px;
+        display: flex;
+        flex-direction: column;
+      }
     }
     &__name {
       font-family: Titillium Web Regular;
@@ -99,6 +293,72 @@
       display: flex;
       justify-content: space-evenly;
       width: 75px;
+      margin-left: 60px;
+    }
+  }
+  @include desktop {
+    &__box {
+      &--row {
+        button {
+          width: 168px;
+          height: 38px;
+        }
+      }
+    }
+    &__searchBar {
+      width: 274px;
+      height: 38px;
+      background-position-x: 239px;
+      background-position-y: 7px;
+    }
+    &__container {
+      width: 1020px;
+      height: 672px;
+    }
+    &__rowAlign {
+      margin-left: 81px;
+      &--addy {
+        margin-left: 86px;
+        flex-direction: row;
+        width: 200px;
+      }
+      &--name {
+        margin-left: 52px;
+      }
+      &--info {
+        margin-left: 96px;
+      }
+    }
+    &__imgBox {
+      margin-left: 83px;
+    }
+    &__bar {
+      justify-content: flex-start;
+      height: 40px;
+      align-items: center;
+      &--warehouse {
+        margin-left: 81px;
+      }
+      &--addy {
+        margin-left: 82px;
+      }
+      &--name {
+        margin-left: 168px;
+      }
+      &--info {
+        margin-left: 62px;
+      }
+      &--action {
+        margin-left: 52px;
+      }
+    }
+    &__text {
+      font-size: 14px;
+      line-height: 22px;
+      &--column {
+        font-size: 14px;
+        line-height: 22px;
+      }
     }
   }
 }

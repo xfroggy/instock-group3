@@ -15,46 +15,88 @@ export default function WarehousePage() {
       .then((res) => {
         const allWarehouses = res.data;
         setData(allWarehouses);
-        console.log(setData);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
+
+  console.log(data);
+
   return (
     <>
       <section className="warehouse__parent">
-        <div className="warehouse__background"></div>
-        <div className="warehouse__firstRow">
-          <div className="warehouse__firstRow--box">
-            <div className="warehouse__container">
-              <h1 className="warehouse__title">Warehouses</h1>
-              <div className="warehouse__searchnButton">
-                <input
-                  type=""
-                  placeholder="search"
-                  className="warehouse__searchBar"
-                ></input>
-                <button>+Add New Warehouse</button>
-              </div>
-              <div className="warehouse__bar">
-                <span className="warehouse__bar--arrow">WAREHOUSE</span>
-                <span className="warehouse__bar--arrow">ADDRESS</span>
-                <span className="warehouse__bar--arrow">CONTACT NAME</span>
-                <span className="warehouse__bar--arrow">
-                  CONTACT INFORMATION
-                </span>
-                <span>ACTION</span>
-              </div>
-              <div className="warehouse__tableRow">
-                <span className="warehouse__name">Santa Monica</span>
-                <span className="warehouse__text">
-                  1125 Stanley street, Montreal,CAN
-                </span>
-                <span className="warehouse__text">Brad MacDonald</span>
-                <span className="warehouse__text">+1(629)555-0129</span>
-                <div className="warehouse__imgBox">
-                  <div className="warehouse__deleteImg"></div>
-                  <div className="warehouse__editImg"></div>
+        <div className="warehouse__background--gray">
+          <div className="warehouse__background"></div>
+          <div className="warehouse__firstRow">
+            <div className="warehouse__firstRow--box">
+              <div className="warehouse__container">
+                <div className="warehouse__box--row">
+                  <h1 className="warehouse__title">Warehouses</h1>
+                  <div className="warehouse__searchnButton">
+                    <input
+                      type=""
+                      placeholder="   Search..."
+                      className="warehouse__searchBar"
+                    ></input>
+                    <button>+Add New Warehouse</button>
+                  </div>
                 </div>
+                <div className="warehouse__bar">
+                  <span className="warehouse__bar--arrow warehouse__bar--warehouse">
+                    WAREHOUSE
+                  </span>
+                  <span className="warehouse__bar--arrow warehouse__bar--addy">
+                    ADDRESS
+                  </span>
+                  <span className="warehouse__bar--arrow warehouse__bar--name">
+                    CONTACT NAME
+                  </span>
+                  <span className="warehouse__bar--arrow warehouse__bar--info">
+                    CONTACT INFORMATION
+                  </span>
+                  <span className="warehouse__bar--action">ACTIONS</span>
+                </div>
+                {data &&
+                  data.map((list, index) => (
+                    <div className="warehouse__tableRow">
+                      <div className="warehouse__tableFlex">
+                        <div className="warehouse__tableColumn">
+                          <div className="warehouse__rowAlign">
+                            <span className="warehouse__label">WAREHOUSE</span>
+                            <span className="warehouse__name">{list.name}</span>
+                          </div>
+                          <div className="warehouse__rowAlign--addy">
+                            <span className="warehouse__label">ADDRESS</span>
+                            <span className="warehouse__text">
+                              {list.address}, {list.city}, {list.country}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="warehouse__tableColumn">
+                          <div className="warehouse__rowAlign--name">
+                            <span className="warehouse__label">
+                              CONTACT NAME
+                            </span>
+                            <span className="warehouse__text">
+                              {list.contact.name}
+                            </span>
+                          </div>
+                          <div className="warehouse__rowAlign--info">
+                            <span className="warehouse__label">
+                              CONTACT INFORMATION
+                            </span>
+                            <span className="warehouse__text--column">
+                              <span>{list.contact.phone}</span>
+                              <span>{list.contact.email}</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="warehouse__imgBox">
+                        <div className="warehouse__deleteImg"></div>
+                        <div className="warehouse__editImg"></div>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
