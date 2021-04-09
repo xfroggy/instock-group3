@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import WarehouseAdd from "../components/warehouse/WarehouseAdd";
 
 export default function WarehousePage() {
     return (

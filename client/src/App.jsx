@@ -2,17 +2,18 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/header/header.jsx";
 import WarehouseDetails from "./components/warehouse/WarehouseDetails";
+import WarehousePage from "./pages/WarehousePage";
 
 function App() {
   return (
     <div>
       <Router>
-        <Header />
-        <WarehouseDetails />
+        {/* <Header />
+        <WarehouseDetails /> */}
         <Switch>
           <Route exact path="/" />
 
-          <Route exact path="/warehouses" />
+          <Route exact path="/warehouses" component={WarehousePage} />
 
           <Route exact path="/inventory" />
           <Route path="/warehouses/:id" />
