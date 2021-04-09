@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-const express = require("express");
-const router = express.Router();
-const app = express();
-=======
 const router = require("express").Router();
->>>>>>> e46beaf149a0dff80e41501192660dfff25a98ed
 const fs = require("fs");
 const path = require("path").resolve(__dirname, "../data");
 
