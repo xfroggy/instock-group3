@@ -18,8 +18,6 @@ router.get("/edit/:id", (req, res) => {
 });
 
 
-
-
 //GET - List all warehouses
 
 router.get("/", (req, res) => {
