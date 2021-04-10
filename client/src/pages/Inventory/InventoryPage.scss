@@ -11,7 +11,7 @@
     &--gray {
       background-color: $light-gray;
       width: 100%;
-      height: 15386px;
+      height: 961.625rem;
     }
   }
   &__title {
@@ -106,6 +106,16 @@
       font-size: 0.8125rem;
       line-height: 1.25rem;
     }
+  }
+  &__greenStat {
+    background: rgba(21, 132, 99, 0.07);
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+  &__orangeStat {
+    background: rgba(201, 69, 21, 0.07);
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
   }
 
   &__text {
@@ -255,28 +265,28 @@
       height: 6.25rem;
     }
     &__rowAlign {
-      margin-left: 26px;
-      width: 158px;
+      margin-left: 1.625rem;
+      width: 9.875rem;
       justify-content: center;
       &--cat {
-        width: 100px;
+        width: 6.25rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
       &--status {
-        margin-left: 23px;
-        width: 85px;
+        margin-left: 1.4375rem;
+        width: 5.3125rem;
         justify-content: center;
       }
       &--qty {
-        margin-left: 16px;
-        width: 40px;
+        margin-left: 1rem;
+        width: 2.5rem;
         justify-content: center;
       }
       &--warehouse {
-        margin-left: 41px;
-        width: 82px;
+        margin-left: 2.5625rem;
+        width: 5.125rem;
         justify-content: center;
       }
     }
@@ -332,12 +342,14 @@
       display: flex;
       justify-content: space-evenly;
       width: 4.6875rem;
-      margin-left: 42px;
+      margin-left: 2.625rem;
     }
   }
   @include desktop {
-    &__tableRow :hover {
-      background-color: $indigo;
+    &__tableRow {
+      &:hover {
+        background: rgba(46, 102, 230, 0.07);
+      }
     }
     &__searchBar {
       width: 17.125rem;
@@ -350,50 +362,50 @@
       height: 295.68rem;
     }
     &__rowAlign {
-      margin-left: 39px;
+      margin-left: 2.4375rem;
       &--cat {
-        margin-left: 88px;
+        margin-left: 5.5rem;
         flex-direction: row;
         width: 9.5rem;
         align-items: center;
         justify-content: flex-start;
       }
       &--status {
-        margin-left: 48px;
+        margin-left: 5.5rem;
       }
       &--qty {
-        margin-left: 109px;
-        width: 80px;
+        margin-left: 6.8125rem;
+        width: 5rem;
       }
       &--warehouse {
-        margin-left: 25px;
-        width: 82px;
+        margin-left: 1.5625rem;
+        width: 5.125rem;
       }
     }
     &__imgBox {
-      margin-left: 51px;
+      margin-left: 3.1875rem;
     }
     &__bar {
       justify-content: flex-start;
       height: 2.5rem;
       align-items: center;
       &--item {
-        margin-left: 40px;
+        margin-left: 2.5rem;
       }
       &--cat {
-        margin-left: 115px;
+        margin-left: 7.1875rem;
       }
       &--status {
-        margin-left: 103px;
+        margin-left: 6.4375rem;
       }
       &--qty {
-        margin-left: 119px;
+        margin-left: 7.4375rem;
       }
       &--warehouse {
-        margin-left: 51px;
+        margin-left: 3.1875rem;
       }
       &--action {
-        margin-left: 41px;
+        margin-left: 2.5625rem;
       }
     }
     &__text {

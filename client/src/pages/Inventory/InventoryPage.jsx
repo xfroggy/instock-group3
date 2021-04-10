@@ -20,8 +20,6 @@ export default function InventoryPage() {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-  console.log(data);
-
   return (
     <>
       <section className="inventory__parent">
@@ -69,7 +67,7 @@ export default function InventoryPage() {
                               INVENTORY ITEM
                             </span>
                             <Link
-                              to={`/warehouses/${list.id}`}
+                              to={`/inventory/${list.id}`}
                               className="inventory__textDec"
                             >
                               <span className="inventory__name">
