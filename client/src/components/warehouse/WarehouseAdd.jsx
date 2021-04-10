@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
+import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
 const WarehouseAdd = () => {
+    const history = useHistory();
     const emptyError = "This field is required.";
 
     const [formContents, setFormContents] = useState();
@@ -14,6 +15,10 @@ const WarehouseAdd = () => {
     const [position, setPosition] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+
+    const goToPreviousPath = () => {
+        history.goBack();
+    }
 
     const validateForm = (formData) => {
         let isValid = true;
@@ -102,7 +107,8 @@ const WarehouseAdd = () => {
             axios
                 .post("http://localhost:8080/api/warehouses/add", Object.fromEntries(formData))
                 .then((response) => {
-                    console.log("warehouse added")
+                    alert("Warehouse Added");
+                    history.goBack();
                 })
                 .catch((err) => console.log(err));
 
@@ -190,7 +196,7 @@ const WarehouseAdd = () => {
                     </div>
                 </div>
                 <div className="form__button-group">
-                    <button className="btn">Cancel</button>
+                    <button onClick={goToPreviousPath} className="btn">Cancel</button>
                     <button className="btn btn-primary" type="submit">+ Add Warehouse</button>
                 </div>
             </form>
