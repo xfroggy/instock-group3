@@ -1,20 +1,126 @@
 @use '../../partials/partials' as *;
 @use '../../partials/mixins.scss' as *;
 
-.card__container {
-    position: absolute;
-    left: 4.27%;
-    right: 4.27%;
-    top: 11.79%;
-    bottom: 8.32%;
+// .card__container {
+//     position: absolute;
+//     left: 4.27%;
+//     right: 4.27%;
+//     top: 11.79%;
+//     bottom: 8.32%;
 
-    /* White */
+//     /* White */
 
-    background: #FFFFFF;
-    /* Card Shadow */
+//     background: #FFFFFF;
+//     /* Card Shadow */
 
-    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-    border-radius: 3px;
+//     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+//     border-radius: 3px;
+// }
+
+// .card__container {
+//     display: flex;
+//     // flex-direction: column;
+//     width: 21.4375rem;
+//     background-color: $white;
+//     position: absolute;
+//     box-shadow: 0rem 0.125rem 0.3125rem rgb(19 24 44 / 10%);
+//     border-radius: 0.1875rem;
+//   }
+.card{
+
+    &__top--container {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        margin-left: 1.75rem;
+    }
+  
+
+    &__arrow {
+        background-image: url(../../assets/icons/arrow_back-24px.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 1rem;
+        height: 1rem;
+        margin-right: .75rem; //12px
+    }
+
+    &__top--title{
+        font-size: 1.75rem; //28px;
+        line-height: 2.25rem; //36px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__details--title {
+        font-size: 1.25rem; //20px
+        font-weight: 600;
+        line-height: 1.75rem; //28px
+        margin: 1rem 0 1.5rem 0;
+    }
+
+    &__details--container{
+        margin: 0 1.5rem;
+    }
 }
+
+.form {
+    &__label {
+        font-family: $main-font;
+        font-size: 0.8125rem; //13px
+        font-weight: 600;
+        margin-bottom: .25rem;
+        
+        line-height: 1.25rem; //20px
+
+    }
+
+    &__input{
+        height: 2.25rem; //36px;
+        width: 275px;
+        border: 1px solid $cloud;
+        border-radius: 1.25rem;
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+     
+        &:focus {            
+            border-radius: 1.25rem;
+            border: 1px solid $indigo;
+            outline: none;
+        }
+    }
+
+    &__button-group {
+        display: flex;
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        justify-content: space-between;
+        
+    }
+}
+  
+button.btn-clear {
+    background-color: $white;
+    color: $slate;
+    width: 8.6875rem; //139px;
+    border: 1px solid $slate;
+    margin-left: 0;
+    
+
+    &:hover {
+        border-radius: 1.25rem;
+        border: 1px solid $indigo;
+        outline: none;
+        color: $indigo;
+    }  
+}
+
+button.btn-add {
+    width: 8.6875rem; //139px;
+    margin-left: 1rem;
+}
+
+
+
 
 
