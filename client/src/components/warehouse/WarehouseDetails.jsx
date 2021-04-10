@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ArrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
-import "./warehouse-styles/WarehouseDetails.scss";
+import "./WarehouseDetails.scss";
 
 function WarehouseDetails() {
   const [warehouse, setWarehouse] = useState(null);
@@ -11,8 +11,9 @@ function WarehouseDetails() {
     async function getData() {
       setIsLoading(true);
       const warehouseData = await axios.get(
-        `http://localhost:8080/api/warehouses/2922c286-16cd-4d43-ab98-c79f698aeab0`
+        `http://localhost:8080/api/warehouses/:id`
       );
+      console.log(warehouseData.data);
       setWarehouse(warehouseData.data);
       setIsLoading(false);
     }
