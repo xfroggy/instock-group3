@@ -2,26 +2,7 @@
   font-family: "Titillium Web Regular";
   src: url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 }
-
 @font-face {
   font-family: "Titillum Web Semi-Bold";
   src: url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
-}
-
-@mixin mobile {
-  @media screen and (max-width: 767px) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media screen and (min-width: 1280px) {
-    @content;
-  }
-}
+}/*# sourceMappingURL=partials.css.map */
