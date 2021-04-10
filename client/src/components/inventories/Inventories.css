@@ -3,17 +3,68 @@
   src: url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 }
 @font-face {
-  font-family: "Titillum Web Semi-Bold";
+  font-family: "Titillium Web Semi-Bold";
   src: url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .inventory__container {
   position: absolute;
   left: 4.27%;
   right: 4.27%;
-  top: 20.39%;
-  bottom: 24.89%;
+  top: 23.39%;
+  bottom: 18.89%;
   font-family: "Titillium Web";
   background-color: #ffffff;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
+}
+
+.inventory__top {
+  display: flex;
+  border-bottom: 1px solid #5c667e;
+  padding: 1.5rem;
+}
+
+.arrow {
+  margin-right: 16px;
+}
+
+.edit {
+  margin-left: 4rem;
+}
+
+.inventory__info {
+  margin-top: 1rem;
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  color: #13182c;
+  margin-left: 0.5rem;
+}
+
+.inventory__status {
+  padding: 3px 8px;
+  width: 44px;
+  height: 20px;
+  background: rgba(21, 132, 99, 0.07);
+  border-radius: 20px;
+  width: 45px;
+  height: 16px;
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #158463;
+}
+
+.inventory__details {
+  display: flex;
 }/*# sourceMappingURL=Inventories.css.map */
