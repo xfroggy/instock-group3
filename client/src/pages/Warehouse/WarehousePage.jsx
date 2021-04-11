@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./WarehousePage.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import DeleteConfirmation from "../../components/inventories/InventoryDelete";
 
 export default function WarehousePage() {
+
   const [data, setData] = useState([]);
   const url = "http://localhost:8080/api/";
+
   useEffect(() => {
     getAllWarehouses();
   }, []);
@@ -21,6 +24,40 @@ export default function WarehousePage() {
   };
 
   console.log(data);
+
+  const [deleteMessage, setDeleteMessage] = useState(null);
+  const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
+  const [warehouseMessage, setWarehouseMessage] = useState(null);
+  const [type, setType] = useState(null);
+  const [id, setId] = useState(null);
+  const [item, setItem] = useState(null,)
+
+  const showDeleteModal = (type, id, item) => {
+    setType(type);
+    setId(id);
+    setItem(item);
+    setWarehouseMessage(null);
+
+    if (type === "warehouse") {
+      setDeleteMessage(`Please confirm that you'd like to delete ${item} from the inventory list.  You won't be able to undo this action.`)
+    }
+
+    setDisplayConfirmationModal(true);
+  }
+
+  const hideConfirmationModal = () => {
+    setDisplayConfirmationModal(false);
+  }
+
+  const submitDelete = (type, id) => {
+    if (type === "warehouse") {
+      setWarehouseMessage("The warehouse was successfully deleted");
+    }
+
+    setDisplayConfirmationModal(false);
+  }
+
+
 
   return (
     <>
@@ -102,7 +139,11 @@ export default function WarehousePage() {
                         </div>
                       </div>
                       <div className="warehouse__imgBox">
-                        <div className="warehouse__deleteImg"></div>
+                        <div
+                          onClick={() => { showDeleteModal("warehouse", `${list.id}`, `${list.itemName}`) }}
+
+                          className="warehouse__deleteImg"></div>
+
                         <Link to={`/warehouses/edit/${list.id}`}>
                           <div className="warehouse__editImg"></div>
                         </Link>
@@ -113,6 +154,8 @@ export default function WarehousePage() {
             </div>
           </div>
         </div>
+        <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} type={type} id={id} message={deleteMessage} />
+
       </section>
     </>
   );
