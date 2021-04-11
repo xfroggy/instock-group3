@@ -3,6 +3,7 @@ import axios from "axios";
 import ArrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import "./WarehouseDetails.scss";
+import { Link } from "react-router-dom";
 
 function WarehouseDetails({ match }) {
   const [warehouse, setWarehouse] = useState(null);
@@ -20,6 +21,22 @@ function WarehouseDetails({ match }) {
 
     getData();
   }, []);
+
+  const [data, setData] = useState([]);
+  const url = "http://localhost:8080/api/";
+  useEffect(() => {
+    getAllInventory();
+  }, []);
+
+  const getAllInventory = () => {
+    axios
+      .get(`${url}inventories`)
+      .then((res) => {
+        const allInventory = res.data;
+        setData(allInventory);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
 
   if (!warehouse) return null;
   return (
@@ -57,6 +74,58 @@ function WarehouseDetails({ match }) {
             </div>
           </div>
         </div>
+        {data &&
+          data.map((list, index) => (
+            <div className="inventoryPage__tableRow">
+              <div className="inventoryPage__tableFlex">
+                <div className="inventoryPage__tableColumn">
+                  <div className="inventoryPage__rowAlign">
+                    <span className="inventoryPage__label">INVENTORY ITEM</span>
+                    <Link
+                      to={`/inventory/${list.id}`}
+                      className="inventoryPage__textDec"
+                    >
+                      <span className="inventoryPage__name">
+                        {list.itemName}
+                      </span>
+                    </Link>
+                  </div>
+                  <div className="inventoryPage__rowAlign--cat">
+                    <span className="inventoryPage__label">CATEGORY</span>
+                    <span className="inventoryPage__text">{list.category}</span>
+                  </div>
+                </div>
+                <div className="inventoryPage__tableColumn">
+                  <div className="inventoryPage__rowAlign--status">
+                    <span className="inventoryPage__label">STATUS</span>
+
+                    <span
+                      className={
+                        list.status === "In Stock"
+                          ? "inventoryPage__greenStat"
+                          : "inventoryPage__orangeStat"
+                      }
+                    >
+                      {list.status}
+                    </span>
+                  </div>
+
+                  <span className="inventoryPage__label">QTY</span>
+                  <span className="inventoryPage__rowAlign--qty">
+                    <span>{list.quantity}</span>
+                  </span>
+                  <span className="inventoryPage__label">WAREHOUSE</span>
+                  <span className="inventoryPage__rowAlign--warehouse">
+                    <span>{list.warehouseName}</span>
+                  </span>
+                </div>
+              </div>
+              <div className="inventoryPage__imgBox">
+                <div className="inventoryPage__deleteImg"></div>
+                <div className="inventoryPage__editImg"></div>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );
