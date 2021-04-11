@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ArrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import "./WarehouseDetails.scss";
-import WarehouseRoute from "../../pages/WarehousePage";
 
 function WarehouseDetails({ match }) {
   const [warehouse, setWarehouse] = useState(null);
