@@ -2,8 +2,9 @@ import React from 'react'
 import { Modal, Button } from 'react-bootstrap';
 
 const DeleteConfirmation = ({ showModal, hideModal, confirmModal, id, item, type, message }) => {
+
     return (
-        <Modal show={showModal} onHide={hideModal}>
+        <Modal className="modal-custom" show={showModal} onHide={hideModal}>
             <Modal.Header closeButton>
                 <Modal.Title>Delete {item} inventory item?</Modal.Title>
             </Modal.Header>
