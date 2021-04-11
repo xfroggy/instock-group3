@@ -11,7 +11,7 @@ const WarehouseEdit = () => {
     const { id } = useParams();
     console.log("The id is: ", id);
 
-    const emptyError = "This field is required.";
+    const emptyError = `<div class="danger-icon"><div class="text-danger">This field is required.</div></div>`;
 
     const [formContents, setFormContents] = useState();
     const [warehouseName, setWarehouseName] = useState("");
@@ -163,89 +163,114 @@ const WarehouseEdit = () => {
 
     return (
         <>
-            <div className="card__container">
-                <div className
-                    className="card__header--container">
-                    <div className="card__arrow"></div>
-                    <h1 className="card__header--title">Add Warehouse</h1>
-                </div>
-            </div>
+            <section className="warehouse__parent">
+                <div className="warehouse__background--gray">
+                    <div className="warehouse__background"></div>
+                    <div className="warehouse__firstRow">
+                        <div className="warehouse__firstRow--box">
+                            <div className="warehouse__container">
+                                <div className="card__box--row">
 
-            <form onSubmit={editWarehouse}>
-                <div className="card__details--container">
-                    <h2>Warehouse Details</h2>
-                    <div className="form-group">
-                        <div className="form-label">Warehouse Name</div>
-                        <input onChange={changeHandler} type="text"
-                            name="warehouseName"
-                            value={formContents && formContents.warehouseName}
-                        />
-                        <div className="text-danger">
-                            {formContents && !formContents.warehouseName ? warehouseName.error : ""}
-                        </div>
-                    </div>
+                                    <div className="card__top--container">
+                                        <div className="card__arrow"></div>
+                                        <h1 className="card__top--title">Edit Warehouse</h1>
+                                    </div>
+                                </div>
 
-                    <div className="form-group">
-                        <div className="form-label">Street Address</div>
-                        <input onChange={changeHandler} type="text" name="address" value={formContents && formContents.address}
-                        />
-                        <div className="text-danger">
-                            {formContents && !formContents.address ? address.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">City</div>
-                        <input onChange={changeHandler} type="text" name="city" value={formContents && formContents.city} />
-                        <div className="text-danger">
-                            {formContents && !formContents.city ? city.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">Country</div>
-                        <input onChange={changeHandler} type="text" name="country" value={formContents && formContents.country} />
-                        <div className="text-danger">
-                            {formContents && !formContents.country ? country.error : ""}
-                        </div>
-                    </div>
-                </div>
-                <div className="card__details--container">
-                    <h2>Contact Details</h2>
-                    <div className="form-group">
-                        <div className="form-label">Contact Name</div>
-                        <input onChange={changeHandler} type="text" name="contactName" value={formContents && formContents.contactName} />
-                        <div className="text-danger">
-                            {formContents && !formContents.contactName ? contactName.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">Position</div>
-                        <input onChange={changeHandler} type="text" name="position" value={formContents && formContents.position} />
-                        <div className="text-danger">
-                            {formContents && !formContents.position ? position.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">Phone Number</div>
-                        <input onChange={changeHandler} type="text" name="phone" value={formContents && formContents.phone} placeholder="(xxx) xxx-xxxx" />
-                        <div className="text-danger">
-                            {formContents && phone.error ? phone.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">Email</div>
-                        <input onChange={changeHandler} type="text" name="email" value={formContents && formContents.email} />
-                        <div className="text-danger">
-                            {formContents && email.error ? email.error : ""}
-                        </div>
-                    </div>
-                </div>
-                <div className="form__button-group">
-                    <button onClick={goToPreviousPath} className="btn">Cancel</button>
 
-                    <button className="btn btn-primary" type="submit">Save</button>
+                                <form onSubmit={editWarehouse}>
+                                    <div className="card__horizontal">
+                                        <div className="card__details--container--first">
+                                            <h2 className="card__details--title">Warehouse Details</h2>
+                                            <div className="form__group">
+                                                <div className="form__label">Warehouse Name</div>
+                                                <input onChange={changeHandler} className="form__input" style={{ border: warehouseName.error ? '1px solid red' : '' }} type="text"
+                                                    name="warehouseName"
+                                                    value={formContents && formContents.warehouseName}
+                                                />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.warehouseName ?
+                                                        <div dangerouslySetInnerHTML={{ __html: warehouseName.error }}></div> : ""}
+                                                </div>
+                                            </div>
+
+                                            <div className="form__group">
+                                                <div className="form__label">Street Address</div>
+                                                <input onChange={changeHandler} className="form__input" style={{ border: address.error ? '1px solid red' : '' }} type="text" name="address"
+                                                    value={formContents && formContents.address}
+                                                />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.address ?
+                                                        <div dangerouslySetInnerHTML={{ __html: address.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">City</div>
+                                                <input onChange={changeHandler} className="form__input" style={{ border: city.error ? '1px solid red' : '' }} type="text" name="city" value={formContents && formContents.city} />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.city ?
+                                                        <div dangerouslySetInnerHTML={{ __html: city.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">Country</div>
+                                                <input onChange={changeHandler} className="form__input" style={{ border: country.error ? '1px solid red' : '' }} type="text" name="country" value={formContents && formContents.country} />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.country ?
+                                                        <div dangerouslySetInnerHTML={{ __html: country.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card__details--container--second ">
+                                            <h2 className="card__details--title">Contact Details</h2>
+                                            <div className="form__group">
+                                                <div className="form__label">Contact Name</div>
+                                                <input onChange={changeHandler} className="form__input" style={{ border: contactName.error ? '1px solid red' : '' }} type="text" name="contactName" value={formContents && formContents.contactName} />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.contactName ?
+                                                        <div dangerouslySetInnerHTML={{ __html: contactName.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">Position</div>
+                                                <input onChange={changeHandler} className="form__input" style={{ border: position.error ? '1px solid red' : '' }} type="text" name="position" value={formContents && formContents.position} />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.position ?
+                                                        <div dangerouslySetInnerHTML={{ __html: position.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">Phone Number</div>
+                                                <input onChange={changeHandler} className="form__input" style={{ border: phone.error ? '1px solid red' : '' }} type="text" name="phone" value={formContents && formContents.phone} />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.phone ?
+                                                        <div dangerouslySetInnerHTML={{ __html: phone.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">Email</div>
+                                                <input onChange={changeHandler} className="form__input" style={{ border: email.error ? '1px solid red' : '' }} type="text" name="email" value={formContents && formContents.email} />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.email ?
+                                                        <div dangerouslySetInnerHTML={{ __html: email.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="form__button-group">
+                                        <button onClick={goToPreviousPath} className="btn-clear">Cancel</button>
+                                        <button className="btn-add" type="submit">Save</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
+
+            </section>
         </>
+
     )
 }
 

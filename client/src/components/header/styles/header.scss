@@ -86,6 +86,7 @@
       width: auto;
     }
     &__warehouse {
+      margin-right: 24px;
       &--active {
         width: 6.6875rem;
         margin-right: 1.5rem;
@@ -94,7 +95,6 @@
     &__inventory {
       &--active {
         width: 6.6875rem;
-        margin-left: 1.5rem;
       }
     }
   }
