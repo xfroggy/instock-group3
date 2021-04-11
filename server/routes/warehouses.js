@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 
 // get request for a single warehouse
 router.get("/edit/:id", (req, res) => {
+
   // console.log(path+"/warehouses.json");
   const warehousesData = fs.readFileSync(path + "/warehouses.json", "utf-8");
   const warehouseArr = JSON.parse(warehousesData);
