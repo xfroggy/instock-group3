@@ -9,6 +9,7 @@ import WarehousePage from "./pages/Warehouse/WarehousePage";
 import InventoryPage from "./pages/Inventory/InventoryPage";
 import WarehouseEdit from "./components/warehouse/WarehouseEdit";
 import WarehouseAdd from "./components/warehouse/WarehouseAdd";
+import EditInventory from "./components/editInventories/EditInventories";
 
 
 function App() {
@@ -24,8 +25,13 @@ function App() {
           <Route exact path="/warehouses/edit/:id" component={WarehouseEdit} />
           <Route exact path="/warehouses/add" component={WarehouseAdd} />
           <Route path="/warehouses/:id" component={WarehouseDetails} />
+<<<<<<< HEAD
+          <Route exact path="/inventory/:id" component={ItemDetail} />
+          <Route exact path="/newitem" component={EditInventory} />
+=======
           <Route path="/inventory/:id" />
 
+>>>>>>> 6ed825a2235674b47662c9f7dccffa73491b673d
         </Switch>
         <Footer />
       </Router>
