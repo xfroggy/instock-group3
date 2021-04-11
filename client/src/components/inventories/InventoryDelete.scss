@@ -2,8 +2,7 @@
 @import "../../partials/partials.scss";
 
 .modal-custom {
-    background-color: green;
-    width: 10rem;
-    height: 50rem;
-    z-index: 3;
+
+    position: absolute;
+    //z-index: 2;
 }

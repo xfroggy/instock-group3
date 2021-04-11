@@ -1,5 +1,6 @@
 import React from 'react'
 import { Modal, Button } from 'react-bootstrap';
+import "./InventoryDelete.scss";
 
 const DeleteConfirmation = ({ showModal, hideModal, confirmModal, id, item, type, message }) => {
 
