@@ -4,6 +4,7 @@ import Header from "./components/header/header.jsx";
 
 import Footer from "./components/Footer/Footer";
 import WarehouseDetails from "./components/warehouse/WarehouseDetails";
+import ItemDetail from "./components/inventories/Inventories";
 import WarehousePage from "./pages/Warehouse/WarehousePage";
 import WarehouseEdit from "./components/warehouse/WarehouseEdit";
 import WarehouseAdd from "./components/warehouse/WarehouseAdd";

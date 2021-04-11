@@ -10,4 +10,14 @@ router.get("/", (req, res) => {
   let list = inventoryList(`${path}/inventories.json`);
   res.send(list);
 });
+
+router.get("/edit/:id", (req, res) => {
+  const inventoriesData = fs.readFileSync(path + "/inventories.json", "utf-8");
+  const inventoriesArr = JSON.parse(inventoriesData);
+  const singleInventories = inventoriesArr.find(
+    (item) => item.id === req.params.id
+  );
+  res.send(singleInventories);
+});
+
 module.exports = router;
