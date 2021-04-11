@@ -1,20 +1,262 @@
 @use '../../partials/partials' as *;
 @use '../../partials/mixins.scss' as *;
 
-.card__container {
-    position: absolute;
-    left: 4.27%;
-    right: 4.27%;
-    top: 11.79%;
-    bottom: 8.32%;
+.card{
 
-    /* White */
+    &__top--container {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        padding-left: 1.75rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid $cloud;
+             
+        @include tablet{
+            padding-bottom: 1.3125rem; //21px
+        }
+    }
 
-    background: #FFFFFF;
-    /* Card Shadow */
+    &__box--row {
+        @include tablet{
 
-    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-    border-radius: 3px;
+        }
+    }
+  
+
+    &__arrow {
+        background-image: url(../../assets/icons/arrow_back-24px.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 1rem;
+        height: 1rem;
+        margin-right: .75rem; //12px
+
+        &:hover, &:focus {
+            transform: scale(1.2);
+        }
+    }
+
+    &__top--title{
+        font-size: 1.75rem; //28px;
+        line-height: 2.25rem; //36px;
+        font-weight: 600;
+        margin: 0;
+
+        @include tablet {
+            font-size: 2rem; //32px
+            line-height: 2.5rem; //40px
+        }
+
+        @include desktop{
+            font-size: 2rem; //32px
+            line-height: 2.5rem; //40px
+        }
+    }
+
+    &__details--title {
+        font-size: 1.25rem; //20px
+        font-weight: 600;
+        line-height: 1.75rem; //28px
+        margin: 0 0 1.5rem 0;
+
+        @include tablet{
+            font-size: 1.5rem; //24px
+            line-height: 2rem; //32px
+            margin-bottom: 2rem;
+        }
+
+        
+    }
+
+    &__horizontal {
+
+        @include tablet{
+            display: flex;
+            flex-direction: row;
+        }
+        
+
+    }
+
+    &__details--container--first {
+        padding: 1rem 1.5rem 0 1.5rem; 
+        border-bottom: 1px solid $cloud;
+        padding-bottom: .5rem;
+
+        @include tablet {
+            padding-top: 0;
+            padding-right: 2rem;
+            padding-left: 2rem;
+            border-bottom: none;
+            border-right: 1px solid $cloud;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @include desktop {
+            padding-right: 2.5rem;
+            padding-left: 2.5rem;
+        }
+    }
+
+    &__details--container--second{
+        padding: 1rem 1.5rem 0 1.5rem; 
+        
+        @include tablet {
+            padding-top: 1.5rem;
+            padding-right: 2rem;
+            padding-left: 2rem;
+        }
+
+        @include desktop {
+            padding-right: 2.5rem;
+            padding-left: 2.5rem;
+        }
+    }   
+
+ 
+ 
+}
+
+
+
+.form {
+    &__label {
+        font-family: $main-font;
+        font-size: 0.8125rem; //13px
+        font-weight: 600;
+        margin-bottom: .25rem;        
+        line-height: 1.25rem; //20px
+
+        @include tablet {
+            font-size: 0.875rem; //14px
+            line-height: 1.375rem; //22px
+        }
+
+    }
+
+    &__input{
+        height: 2.25rem; //36px;
+        width: 275px;
+        border: 1px solid $cloud;
+        border-radius: 1.25rem;
+        padding-left: 1rem;
+        margin-bottom: .25rem;
+
+        @include tablet{
+            width: 16.75rem; //287.5px
+            height: 2.375rem; //38px
+        }
+
+        @include desktop{
+            width: 25.563rem; //429px
+
+        }
+     
+        &:hover, &:focus {            
+            border-radius: 1.25rem;
+            border: 1px solid $indigo;
+            outline: none;
+        }
+
+      
+    }
+     
+    &__button-group {
+        display: flex;
+        padding: 1rem 1.5rem;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $light-gray;
+
+        @include tablet{
+            justify-content: flex-end;
+            padding-right: 2rem;
+        }
+        @include desktop{
+            padding-right: 2.5rem;
+        }
+        
+    }
+}
+  
+button {
+    height: 2.375rem;
+        width: 10.5rem;
+        font-family: Titillium Web;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+        padding: 0.5rem 1rem;
+      //  margin: 2rem 2rem 1.5rem 0rem;
+        border-radius: 1.25rem;
+        background-color: $indigo;
+        color: $white;
+        border: none;
+
+
+&.btn-clear {
+    background-color: $white;
+    color: $slate;
+    width: 8.6875rem; //139px;
+    border: 1px solid $slate;
+    margin-left: 0;
+    margin-bottom: 0;
+
+    @include tablet {
+        width: 4.5rem; // 72px;
+    }
+    
+
+    &:hover {
+        border-radius: 1.25rem;
+        border: 1px solid $indigo;
+        outline: none;
+        color: $indigo;
+    }  
+}
+
+&.btn-add {
+    width: 8.6875rem; //139px;
+    margin-left: 1rem;
+    margin-bottom: 0;
+
+    &:hover, &:focus {
+        background-color: $graphite;
+        outline:none;
+
+    }
+}
+
+}
+
+.text-danger {
+   font-size: 0.6875rem; //11px
+   line-height: 1rem; 
+   margin-left: 1.083125rem;  //17.33px;
+   color: $red;
+   width: 300px;
+}
+
+.danger-icon {
+    background-image: url(../../assets/icons/error-24px.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 0.833125rem; //13.33px;
+        height: 0.833125rem; // 13.33px;
+        
+}
+
+.error{
+    &__container{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: .5rem;
+
+    }
+}
+
+.empty-space {
+    height: .833125rem; // 13.33px;
 }
 
 

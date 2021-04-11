@@ -8,6 +8,30 @@
   src: url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
 }
 
+ /* VARIABLES */
+
+$main-font: "Titillium Web";
+
+/* GLOBALS */
+
+*,
+address,
+small,
+a {text-decoration: none}
+
+ul,
+li,
+h1,
+h2,
+h3,
+h4 {
+  box-sizing: border-box;
+  font-family: $main-font;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 @mixin mobile {
   @media screen and (max-width: 767px) {
     @content;
