@@ -1,7 +1,7 @@
 @import "../../partials/mixins.scss";
 @import "../../partials/partials.scss";
 
-.warehouse {
+.warehousePage {
   background: #d1d1d1;
   &__background {
     background-color: $graphite;
@@ -56,6 +56,9 @@
   }
   &__textDec {
     text-decoration: none;
+    :hover {
+      text-decoration: underline;
+    }
   }
   &__box--row {
     button {

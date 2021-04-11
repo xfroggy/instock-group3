@@ -22,94 +22,98 @@ export default function InventoryPage() {
 
   return (
     <>
-      <section className="inventory__parent">
-        <div className="inventory__background--gray">
-          <div className="inventory__background"></div>
-          <div className="inventory__firstRow">
-            <div className="inventory__firstRow--box">
-              <div className="inventory__container">
-                <div className="inventory__box--row">
-                  <h1 className="inventory__title">Inventory</h1>
-                  <div className="inventory__searchnButton">
+      <section className="inventoryPage__parent">
+        <div className="inventoryPage__background--gray">
+          <div className="inventoryPage__background"></div>
+          <div className="inventoryPage__firstRow">
+            <div className="inventoryPage__firstRow--box">
+              <div className="inventoryPage__container">
+                <div className="inventoryPage__box--row">
+                  <h1 className="inventoryPage__title">Inventory</h1>
+                  <div className="inventoryPage__searchnButton">
                     <input
                       type=""
                       placeholder="   Search..."
-                      className="inventory__searchBar"
+                      className="inventoryPage__searchBar"
                     ></input>
                     <button>+Add New Item</button>
                   </div>
                 </div>
-                <div className="inventory__bar">
-                  <span className="inventory__bar--arrow inventory__bar--item">
+                <div className="inventoryPage__bar">
+                  <span className="inventoryPage__bar--arrow inventoryPage__bar--item">
                     INVENTORY ITEM
                   </span>
-                  <span className="inventory__bar--arrow inventory__bar--cat">
+                  <span className="inventoryPage__bar--arrow inventoryPage__bar--cat">
                     CATEGORY
                   </span>
-                  <span className="inventory__bar--arrow inventory__bar--status">
+                  <span className="inventoryPage__bar--arrow inventoryPage__bar--status">
                     STATUS
                   </span>
-                  <span className="inventory__bar--arrow inventory__bar--qty">
+                  <span className="inventoryPage__bar--arrow inventoryPage__bar--qty">
                     QTY
                   </span>
-                  <span className="inventory__bar--arrow inventory__bar--warehouse">
+                  <span className="inventoryPage__bar--arrow inventoryPage__bar--warehouse">
                     WAREHOUSE
                   </span>
-                  <span className="inventory__bar--action">ACTIONS</span>
+                  <span className="inventoryPage__bar--action">ACTIONS</span>
                 </div>
                 {data &&
                   data.map((list, index) => (
-                    <div className="inventory__tableRow">
-                      <div className="inventory__tableFlex">
-                        <div className="inventory__tableColumn">
-                          <div className="inventory__rowAlign">
-                            <span className="inventory__label">
+                    <div className="inventoryPage__tableRow">
+                      <div className="inventoryPage__tableFlex">
+                        <div className="inventoryPage__tableColumn">
+                          <div className="inventoryPage__rowAlign">
+                            <span className="inventoryPage__label">
                               INVENTORY ITEM
                             </span>
                             <Link
                               to={`/inventory/${list.id}`}
-                              className="inventory__textDec"
+                              className="inventoryPage__textDec"
                             >
-                              <span className="inventory__name">
+                              <span className="inventoryPage__name">
                                 {list.itemName}
                               </span>
                             </Link>
                           </div>
-                          <div className="inventory__rowAlign--cat">
-                            <span className="inventory__label">CATEGORY</span>
-                            <span className="inventory__text">
+                          <div className="inventoryPage__rowAlign--cat">
+                            <span className="inventoryPage__label">
+                              CATEGORY
+                            </span>
+                            <span className="inventoryPage__text">
                               {list.category}
                             </span>
                           </div>
                         </div>
-                        <div className="inventory__tableColumn">
-                          <div className="inventory__rowAlign--status">
-                            <span className="inventory__label">STATUS</span>
+                        <div className="inventoryPage__tableColumn">
+                          <div className="inventoryPage__rowAlign--status">
+                            <span className="inventoryPage__label">STATUS</span>
 
                             <span
                               className={
                                 list.status === "In Stock"
-                                  ? "inventory__greenStat"
-                                  : "inventory__orangeStat"
+                                  ? "inventoryPage__greenStat"
+                                  : "inventoryPage__orangeStat"
                               }
                             >
                               {list.status}
                             </span>
                           </div>
 
-                          <span className="inventory__label">QTY</span>
-                          <span className="inventory__rowAlign--qty">
+                          <span className="inventoryPage__label">QTY</span>
+                          <span className="inventoryPage__rowAlign--qty">
                             <span>{list.quantity}</span>
                           </span>
-                          <span className="inventory__label">WAREHOUSE</span>
-                          <span className="inventory__rowAlign--warehouse">
+                          <span className="inventoryPage__label">
+                            WAREHOUSE
+                          </span>
+                          <span className="inventoryPage__rowAlign--warehouse">
                             <span>{list.warehouseName}</span>
                           </span>
                         </div>
                       </div>
-                      <div className="inventory__imgBox">
-                        <div className="inventory__deleteImg"></div>
-                        <div className="inventory__editImg"></div>
+                      <div className="inventoryPage__imgBox">
+                        <div className="inventoryPage__deleteImg"></div>
+                        <div className="inventoryPage__editImg"></div>
                       </div>
                     </div>
                   ))}
