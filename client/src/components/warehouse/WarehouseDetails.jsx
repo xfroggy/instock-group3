@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import ArrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import "./WarehouseDetails.scss";
+import WarehouseRoute from "../../pages/WarehousePage";
 
 function WarehouseDetails({ match }) {
   const [warehouse, setWarehouse] = useState(null);
@@ -13,7 +15,6 @@ function WarehouseDetails({ match }) {
       const warehouseData = await axios.get(
         `http://localhost:8080/api/warehouses/${match.params.id}`
       );
-      console.log(warehouseData.data);
       setWarehouse(warehouseData.data);
       setIsLoading(false);
     }
@@ -27,9 +28,11 @@ function WarehouseDetails({ match }) {
       <div>
         <div className="warehouse__name">
           <div className="warehouse__name--left">
-            <button className="button">
-              <img className="back__icon" src={ArrowIcon} />
-            </button>
+            <Link to="/warehouses">
+              <button className="button">
+                <img className="back__icon" src={ArrowIcon} />
+              </button>
+            </Link>
             <h1 className="warehouse__name--text">{warehouse.name}</h1>
           </div>
           <button className="button__round">
