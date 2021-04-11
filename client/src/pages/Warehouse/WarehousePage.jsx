@@ -27,88 +27,91 @@ export default function WarehousePage() {
 
   return (
     <>
-      <section className="warehouse__parent">
-        <div className="warehouse__background--gray">
-          <div className="warehouse__background"></div>
-          <div className="warehouse__firstRow">
-            <div className="warehouse__firstRow--box">
-              <div className="warehouse__container">
-                <div className="warehouse__box--row">
-                  <h1 className="warehouse__title">Warehouses</h1>
-                  <div className="warehouse__searchnButton">
+      <section className="warehousePage__parent">
+        <div className="warehousePage__background--gray">
+          <div className="warehousePage__background"></div>
+          <div className="warehousePage__firstRow">
+            <div className="warehousePage__firstRow--box">
+              <div className="warehousePage__container">
+                <div className="warehousePage__box--row">
+                  <h1 className="warehousePage__title">Warehouses</h1>
+                  <div className="warehousePage__searchnButton">
                     <input
                       type=""
                       placeholder="   Search..."
-                      className="warehouse__searchBar"
+                      className="warehousePage__searchBar"
                     ></input>
                     <Link to="/warehouses/add">
                       <button>+Add New Warehouse</button>
                     </Link>
                   </div>
                 </div>
-                <div className="warehouse__bar">
-                  <span className="warehouse__bar--arrow warehouse__bar--warehouse">
+                <div className="warehousePage__bar">
+                  <span className="warehousePage__bar--arrow warehousePage__bar--warehouse">
                     WAREHOUSE
                   </span>
-                  <span className="warehouse__bar--arrow warehouse__bar--addy">
+                  <span className="warehousePage__bar--arrow warehousePage__bar--addy">
                     ADDRESS
                   </span>
-                  <span className="warehouse__bar--arrow warehouse__bar--name">
+                  <span className="warehousePage__bar--arrow warehousePage__bar--name">
                     CONTACT NAME
                   </span>
-                  <span className="warehouse__bar--arrow warehouse__bar--info">
+                  <span className="warehousePage__bar--arrow warehousePage__bar--info">
                     CONTACT INFORMATION
                   </span>
-                  <span className="warehouse__bar--action">ACTIONS</span>
+                  <span className="warehousePage__bar--action">ACTIONS</span>
                 </div>
                 {data &&
                   data.map((list, index) => (
-                    <div className="warehouse__tableRow">
-                      <div className="warehouse__tableFlex">
-                        <div className="warehouse__tableColumn">
-                          <div className="warehouse__rowAlign">
-                            <span className="warehouse__label">WAREHOUSE</span>
+                    <div className="warehousePage__tableRow">
+                      <div className="warehousePage__tableFlex">
+                        <div className="warehousePage__tableColumn">
+                          <div className="warehousePage__rowAlign">
+                            <span className="warehousePage__label">
+                              WAREHOUSE
+                            </span>
                             <Link
                               to={`/warehouses/${list.id}`}
-                              className="warehouse__textDec"
+                              className="warehousePage__textDec"
                             >
-                              <span className="warehouse__name">
+                              <span className="warehousePage__name">
                                 {list.name}
                               </span>
                             </Link>
                           </div>
-                          <div className="warehouse__rowAlign--addy">
-                            <span className="warehouse__label">ADDRESS</span>
-                            <span className="warehouse__text">
+                          <div className="warehousePage__rowAlign--addy">
+                            <span className="warehousePage__label">
+                              ADDRESS
+                            </span>
+                            <span className="warehousePage__text">
                               {list.address}, {list.city}, {list.country}
                             </span>
                           </div>
                         </div>
-                        <div className="warehouse__tableColumn">
-                          <div className="warehouse__rowAlign--name">
-                            <span className="warehouse__label">
+                        <div className="warehousePage__tableColumn">
+                          <div className="warehousePage__rowAlign--name">
+                            <span className="warehousePage__label">
                               CONTACT NAME
                             </span>
-                            <span className="warehouse__text">
+                            <span className="warehousePage__text">
                               {list.contact.name}
                             </span>
                           </div>
-                          <div className="warehouse__rowAlign--info">
-                            <span className="warehouse__label">
+                          <div className="warehousePage__rowAlign--info">
+                            <span className="warehousePage__label">
                               CONTACT INFORMATION
                             </span>
-                            <span className="warehouse__text--column">
+                            <span className="warehousePage__text--column">
                               <span>{list.contact.phone}</span>
                               <span>{list.contact.email}</span>
                             </span>
                           </div>
                         </div>
                       </div>
-                      <div className="warehouse__imgBox">
-                        <div className="warehouse__deleteImg"></div>
-
+                      <div className="warehousePage__imgBox">
+                        <div className="warehousePage__deleteImg"></div>
                         <Link to={`/warehouses/edit/${list.id}`}>
-                          <div className="warehouse__editImg"></div>
+                          <div className="warehousePage__editImg"></div>
                         </Link>
                       </div>
                     </div>
