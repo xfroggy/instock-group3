@@ -149,11 +149,11 @@ export default function InventoryPage() {
                           </span>
                         </div>
                       </div>
-                      <div className="inventory__imgBox">
+                      <div className="inventoryPage__imgBox">
                         <div
                           onClick={() => { showDeleteModal("inventory", `${list.id}`, `${list.itemName}`) }}
-                          className="inventory__deleteImg"></div>
-                        <div className="inventory__editImg"></div>
+                          className="inventoryPage__deleteImg"></div>
+                        <div className="inventoryPage__editImg"></div>
                       </div>
                     </div>
                   ))}
