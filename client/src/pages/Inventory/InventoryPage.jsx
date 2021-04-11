@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./InventoryPage.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import DeleteConfirmation from "../../components/inventories/InventoryDelete";
 
 export default function InventoryPage() {
   const [data, setData] = useState([]);
@@ -19,6 +20,43 @@ export default function InventoryPage() {
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
+
+  console.log(data);
+
+  const [deleteMessage, setDeleteMessage] = useState(null);
+  const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
+  const [warehouseMessage, setWarehouseMessage] = useState(null);
+  const [type, setType] = useState(null);
+  const [id, setId] = useState(null);
+  const [item, setItem] = useState(null)
+
+  const showDeleteModal = (type, id, item) => {
+    setType(type);
+    setId(id);
+    setItem(item);
+    setWarehouseMessage(null);
+    console.log("Here's my values:", type, id, item)
+
+    if (type === "inventory") {
+      setDeleteMessage(`Please confirm that you'd like to delete ${item} from the inventory list.  You won't be able to undo this action.`)
+    }
+
+    setDisplayConfirmationModal(true);
+  }
+
+  const hideConfirmationModal = () => {
+    setDisplayConfirmationModal(false);
+  }
+
+  const submitDelete = (type, id) => {
+    if (type === "inventory") {
+      setWarehouseMessage("The warehouse was successfully deleted");
+    }
+
+    setDisplayConfirmationModal(false);
+  }
+
+
 
   return (
     <>
@@ -112,7 +150,9 @@ export default function InventoryPage() {
                         </div>
                       </div>
                       <div className="inventoryPage__imgBox">
-                        <div className="inventoryPage__deleteImg"></div>
+                        <div
+                          onClick={() => { showDeleteModal("inventory", `${list.id}`, `${list.itemName}`) }}
+                          className="inventoryPage__deleteImg"></div>
                         <div className="inventoryPage__editImg"></div>
                       </div>
                     </div>
@@ -121,6 +161,7 @@ export default function InventoryPage() {
             </div>
           </div>
         </div>
+        <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} type={type} id={id} item={item} message={deleteMessage} />
       </section>
     </>
   );

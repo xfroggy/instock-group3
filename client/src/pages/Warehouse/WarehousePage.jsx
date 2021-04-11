@@ -3,9 +3,12 @@ import "./WarehousePage.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
 export default function WarehousePage() {
+
   const [data, setData] = useState([]);
   const url = "http://localhost:8080/api/";
+
   useEffect(() => {
     getAllWarehouses();
   }, []);
@@ -20,7 +23,7 @@ export default function WarehousePage() {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-  console.log(data);
+
 
   return (
     <>
@@ -117,6 +120,7 @@ export default function WarehousePage() {
             </div>
           </div>
         </div>
+
       </section>
     </>
   );
