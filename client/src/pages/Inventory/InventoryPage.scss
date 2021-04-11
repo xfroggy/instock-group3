@@ -1,7 +1,7 @@
 @import "../../partials/mixins.scss";
 @import "../../partials/partials.scss";
 
-.warehouse {
+.inventory {
   background: #d1d1d1;
   &__background {
     background-color: $graphite;
@@ -15,7 +15,7 @@
   }
   &__title {
     margin: 0rem;
-    font-family: Titillium Web, sans-serif;
+    font-family: Titillum Web, sans-serif;
     font-weight: 600;
     font-size: 1.75rem;
     line-height: 2.25rem;
@@ -83,18 +83,50 @@
   &__rowAlign {
     display: flex;
     flex-direction: column;
-    &--addy {
+    &--cat {
       display: flex;
       flex-direction: column;
     }
-    &--name {
+    &--status {
       display: flex;
       flex-direction: column;
     }
-    &--info {
+    &--qty {
       display: flex;
       flex-direction: column;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
     }
+    &--warehouse {
+      display: flex;
+      flex-direction: column;
+      font-family: Titillum Web, sans-serif;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+    }
+  }
+  &__greenStat {
+    background: rgba(21, 132, 99, 0.07);
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    font-family: Titillum Web, sans-serif;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    color: $green;
+    font-weight: 600;
+    text-align: center;
+  }
+  &__orangeStat {
+    background: rgba(201, 69, 21, 0.07);
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    font-family: Titillum Web, sans-serif;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    color: $red;
+    font-weight: 600;
+    text-align: center;
   }
 
   &__text {
@@ -180,6 +212,7 @@
     }
     &__container {
       width: 44rem;
+      height: 295.75rem;
     }
     &__title {
       font-size: 2rem;
@@ -212,18 +245,12 @@
         padding-right: 1.875rem;
       }
     }
-    &__background {
-      &--gray {
-        background-color: $light-gray;
-        width: 100%;
-      }
-    }
     &__box--row {
       display: flex;
       justify-content: space-between;
       button {
         height: 2.375rem;
-        width: 10.75rem;
+        width: 8.125rem;
         font-family: Titillum Web, sans-serif;
         font-size: 0.875rem;
         line-height: 1.375rem;
@@ -246,23 +273,28 @@
       height: 6.25rem;
     }
     &__rowAlign {
-      margin-left: 2rem;
-      width: 6.25rem;
+      margin-left: 1.625rem;
+      width: 9.875rem;
       justify-content: center;
-      &--addy {
-        margin-left: 1.875rem;
+      &--cat {
         width: 6.25rem;
         display: flex;
         flex-direction: column;
-      }
-      &--name {
-        margin-left: 0.875rem;
-        width: 5.625rem;
         justify-content: center;
       }
-      &--info {
-        margin-left: 3.9375rem;
-        width: 7.625rem;
+      &--status {
+        margin-left: 1.4375rem;
+        width: 5.3125rem;
+        justify-content: center;
+      }
+      &--qty {
+        margin-left: 1rem;
+        width: 2.5rem;
+        justify-content: center;
+      }
+      &--warehouse {
+        margin-left: 2.5625rem;
+        width: 5.125rem;
         justify-content: center;
       }
     }
@@ -276,6 +308,16 @@
         line-height: 1.125rem;
         display: flex;
         flex-direction: column;
+      }
+      &--qty {
+        font-family: Titillum Web, sans-serif;
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+      }
+      &--warehouse {
+        font-family: Titillum Web, sans-serif;
+        font-size: 0.75rem;
+        line-height: 1.125rem;
       }
     }
     &__name {
@@ -308,17 +350,13 @@
       display: flex;
       justify-content: space-evenly;
       width: 4.6875rem;
-      margin-left: 3.75rem;
-      margin-right: 0.9375rem;
+      margin-left: 2.625rem;
     }
   }
   @include desktop {
-    &__box {
-      &--row {
-        button {
-          width: 11.5rem;
-          height: 2.375rem;
-        }
+    &__tableRow {
+      &:hover {
+        background: rgba(46, 102, 230, 0.07);
       }
     }
     &__searchBar {
@@ -329,44 +367,53 @@
     }
     &__container {
       width: 63.75rem;
+      height: 295.68rem;
     }
     &__rowAlign {
-      margin-left: 5.0625rem;
-      &--addy {
-        margin-left: 5.375rem;
+      margin-left: 2.4375rem;
+      &--cat {
+        margin-left: 5.5rem;
         flex-direction: row;
-        width: 12.5rem;
+        width: 9.5rem;
         align-items: center;
+        justify-content: flex-start;
       }
-      &--name {
-        margin-left: 3.25rem;
+      &--status {
+        margin-left: 2.9375rem;
       }
-      &--info {
-        margin-left: 6rem;
-        width: 8.5rem;
+      &--qty {
+        margin-left: 6.8125rem;
+        width: 5rem;
+      }
+      &--warehouse {
+        margin-left: 1.625rem;
+        width: 5.125rem;
       }
     }
     &__imgBox {
-      margin-left: 5.1875rem;
+      margin-left: 3.1875rem;
     }
     &__bar {
       justify-content: flex-start;
       height: 2.5rem;
       align-items: center;
+      &--item {
+        margin-left: 2.5rem;
+      }
+      &--cat {
+        margin-left: 7.1875rem;
+      }
+      &--status {
+        margin-left: 6.4375rem;
+      }
+      &--qty {
+        margin-left: 7.4375rem;
+      }
       &--warehouse {
-        margin-left: 5.0625rem;
-      }
-      &--addy {
-        margin-left: 4.875rem;
-      }
-      &--name {
-        margin-left: 10.25rem;
-      }
-      &--info {
-        margin-left: 3.875rem;
+        margin-left: 3.1875rem;
       }
       &--action {
-        margin-left: 3.25rem;
+        margin-left: 2.5625rem;
       }
     }
     &__text {
