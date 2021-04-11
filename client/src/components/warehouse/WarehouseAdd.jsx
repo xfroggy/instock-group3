@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import "./WarehouseAdd.scss";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
 const WarehouseAdd = () => {
     const history = useHistory();
-    const emptyError = "This field is required.";
+    const emptyError = `<div class="danger-icon"><div class="text-danger">This field is required.</div></div>`;
+
 
     const [formContents, setFormContents] = useState();
     const [warehouseName, setWarehouseName] = useState("");
@@ -71,7 +73,7 @@ const WarehouseAdd = () => {
             setPhone({ error: emptyError });
         } else if (!phonePattern.test(formData.get('phone'))) {
             isValid = false;
-            setPhone({ error: "not a valid phone number" });
+            setPhone({ error: `<div class="danger-icon"><div class="text-danger">Not valid phone number format.</div></div>` });
         } else {
             setPhone({ error: "" });
         }
@@ -83,7 +85,7 @@ const WarehouseAdd = () => {
             setEmail({ error: emptyError });
         } else if (!emailPattern.test(formData.get('email'))) {
             isValid = false;
-            setEmail({ error: "Not valid email syntax" });
+            setEmail({ error: `<div class="danger-icon"><div class="text-danger">Not valid email syntax.</div></div>` });
         } else {
             setEmail({ error: "" });
         }
@@ -120,86 +122,112 @@ const WarehouseAdd = () => {
 
     return (
         <>
-            <div className="card__container">
-                <div className
-                    className="card__header--container">
-                    <div className="card__arrow"></div>
-                    <h1 className="card__header--title">Add Warehouse</h1>
-                </div>
-            </div>
+            <section className="warehouse__parent">
+                <div className="warehouse__background--gray">
+                    <div className="warehouse__background"></div>
+                    <div className="warehouse__firstRow">
+                        <div className="warehouse__firstRow--box">
+                            <div className="warehouse__container">
+                                <div className="card__box--row">
 
-            <form onSubmit={addWarehouse}>
-                <div className="card__details--container">
-                    <h2>Warehouse Details</h2>
-                    <div className="form-group">
-                        <div className="form-label">Warehouse Name</div>
-                        <input type="text"
-                            name="warehouseName"
-                        />
-                        <div className="text-danger">
-                            {formContents && !formContents.warehouseName ? warehouseName.error : ""}
-                        </div>
-                    </div>
+                                    <div className="card__top--container">
+                                        <div className="card__arrow"></div>
+                                        <h1 className="card__top--title">Add New Warehouse</h1>
+                                    </div>
+                                </div>
 
-                    <div className="form-group">
-                        <div className="form-label">Street Address</div>
-                        <input type="text" name="address"
-                        />
-                        <div className="text-danger">
-                            {formContents && !formContents.address ? address.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">City</div>
-                        <input type="text" name="city" />
-                        <div className="text-danger">
-                            {formContents && !formContents.city ? city.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">Country</div>
-                        <input type="text" name="country" />
-                        <div className="text-danger">
-                            {formContents && !formContents.country ? country.error : ""}
+
+                                <form onSubmit={addWarehouse}>
+                                    <div className="card__horizontal">
+                                        <div className="card__details--container--first">
+                                            <h2 className="card__details--title">Warehouse Details</h2>
+                                            <div className="form__group">
+                                                <div className="form__label">Warehouse Name</div>
+                                                <input className="form__input" style={{ border: warehouseName.error ? '1px solid red' : '' }} type="text"
+                                                    name="warehouseName"
+                                                    placeholder="Warehouse Name"
+                                                />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.warehouseName ?
+                                                        <div dangerouslySetInnerHTML={{ __html: warehouseName.error }}></div> : ""}
+                                                </div>
+                                            </div>
+
+                                            <div className="form__group">
+                                                <div className="form__label">Street Address</div>
+                                                <input className="form__input" style={{ border: address.error ? '1px solid red' : '' }} type="text" name="address"
+                                                    placeholder="Street Address"
+                                                />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.address ?
+                                                        <div dangerouslySetInnerHTML={{ __html: address.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">City</div>
+                                                <input className="form__input" style={{ border: city.error ? '1px solid red' : '' }} type="text" name="city" placeholder="City" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.city ?
+                                                        <div dangerouslySetInnerHTML={{ __html: city.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">Country</div>
+                                                <input className="form__input" style={{ border: country.error ? '1px solid red' : '' }} type="text" name="country" placeholder="Country" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.country ?
+                                                        <div dangerouslySetInnerHTML={{ __html: country.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card__details--container--second ">
+                                            <h2 className="card__details--title">Contact Details</h2>
+                                            <div className="form__group">
+                                                <div className="form__label">Contact Name</div>
+                                                <input className="form__input" style={{ border: contactName.error ? '1px solid red' : '' }} type="text" name="contactName" placeholder="Contact Name" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.contactName ?
+                                                        <div dangerouslySetInnerHTML={{ __html: contactName.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">Position</div>
+                                                <input className="form__input" style={{ border: position.error ? '1px solid red' : '' }} type="text" name="position" placeholder="Position" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.position ?
+                                                        <div dangerouslySetInnerHTML={{ __html: position.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">Phone Number</div>
+                                                <input className="form__input" style={{ border: phone.error ? '1px solid red' : '' }} type="text" name="phone" placeholder="Phone Number" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.phone ?
+                                                        <div dangerouslySetInnerHTML={{ __html: phone.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                            <div className="form__group">
+                                                <div className="form__label">Email</div>
+                                                <input className="form__input" style={{ border: email.error ? '1px solid red' : '' }} type="text" name="email" placeholder="Email" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.email ?
+                                                        <div dangerouslySetInnerHTML={{ __html: email.error }}></div> : ""}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="form__button-group">
+                                        <button onClick={goToPreviousPath} className="btn-clear">Cancel</button>
+                                        <button className="btn-add" type="submit">+ Add Warehouse</button>
+                                    </div>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="card__details--container">
-                    <h2>Contact Details</h2>
-                    <div className="form-group">
-                        <div className="form-label">Contact Name</div>
-                        <input type="text" name="contactName" />
-                        <div className="text-danger">
-                            {formContents && !formContents.contactName ? contactName.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">Position</div>
-                        <input type="text" name="position" />
-                        <div className="text-danger">
-                            {formContents && !formContents.position ? position.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">Phone Number</div>
-                        <input type="text" name="phone" placeholder="(xxx) xxx-xxxx" />
-                        <div className="text-danger">
-                            {formContents && !formContents.phone ? phone.error : ""}
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="form-label">Email</div>
-                        <input type="text" name="email" />
-                        <div className="text-danger">
-                            {formContents && !formContents.email ? email.error : ""}
-                        </div>
-                    </div>
-                </div>
-                <div className="form__button-group">
-                    <button onClick={goToPreviousPath} className="btn">Cancel</button>
-                    <button className="btn btn-primary" type="submit">+ Add Warehouse</button>
-                </div>
-            </form>
+
+            </section>
         </>
     )
 }

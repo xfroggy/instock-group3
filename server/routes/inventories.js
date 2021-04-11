@@ -56,3 +56,44 @@ router.post("/newitem", (request, response) => {
 });
 
 module.exports = router;
+
+router.delete("/delete/:id", (request, response) => {
+
+  // READ THE JSON FILE AND PARSE
+  fs.readFile(`${path}/inventories.json`, "utf8", (err, inventoryData) => {
+
+    if (err) {
+      console.error(err);
+      return;
+    }
+    inventoryData = JSON.parse(inventoryData);
+
+    //FIND ITEM BY ID
+
+    let currentIdIndex = inventoryData.findIndex(
+      (obj) => obj.id == request.params.id
+    );
+
+    console.log("Current ID Index: ", currentIdIndex);
+
+    //UPDATE VALUES IN CURRENT WAREHOUSE WITH NEW VALUES
+    inventoryData.splice(currentIdIndex);
+
+    //WRITE UPDATED DATA TO FILE
+    inventoryData = JSON.stringify(inventoryData);
+
+    try {
+      fs.writeFile(`${path}/inventories.json`, inventoryData, (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        response.status(201).send("inventory updated");
+      });
+    } catch (error) {
+      response.status(501).json({
+        error: error.message,
+      });
+    }
+  });
+});

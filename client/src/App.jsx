@@ -1,28 +1,37 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/header/header.jsx";
+
 import Footer from "./components/Footer/Footer";
 import WarehouseDetails from "./components/warehouse/WarehouseDetails";
 import ItemDetail from "./components/inventories/Inventories";
 import WarehousePage from "./pages/Warehouse/WarehousePage";
+import InventoryPage from "./pages/Inventory/InventoryPage";
 import WarehouseEdit from "./components/warehouse/WarehouseEdit";
 import WarehouseAdd from "./components/warehouse/WarehouseAdd";
 import EditInventory from "./components/editInventories/EditInventories";
+
 
 function App() {
   return (
     <div>
       <Router>
         <Header />
+
         <Switch>
           <Route exact path="/" />
           <Route exact path="/warehouses" component={WarehousePage} />
+          <Route exact path="/inventory" component={InventoryPage} />
           <Route exact path="/warehouses/edit/:id" component={WarehouseEdit} />
           <Route exact path="/warehouses/add" component={WarehouseAdd} />
-          <Route exact path="/inventory" />
           <Route path="/warehouses/:id" component={WarehouseDetails} />
+<<<<<<< HEAD
           <Route exact path="/inventory/:id" component={ItemDetail} />
           <Route exact path="/newitem" component={EditInventory} />
+=======
+          <Route path="/inventory/:id" />
+
+>>>>>>> 6ed825a2235674b47662c9f7dccffa73491b673d
         </Switch>
         <Footer />
       </Router>
