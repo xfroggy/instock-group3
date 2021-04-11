@@ -85,7 +85,14 @@ export default function InventoryPage() {
                         <div className="inventory__tableColumn">
                           <div className="inventory__rowAlign--status">
                             <span className="inventory__label">STATUS</span>
-                            <span className="inventory__text">
+
+                            <span
+                              className={
+                                list.status === "In Stock"
+                                  ? "inventory__greenStat"
+                                  : "inventory__orangeStat"
+                              }
+                            >
                               {list.status}
                             </span>
                           </div>

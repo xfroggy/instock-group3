@@ -11,7 +11,6 @@
     &--gray {
       background-color: $light-gray;
       width: 100%;
-      height: 961.625rem;
     }
   }
   &__title {
@@ -51,7 +50,7 @@
     flex-direction: column;
     width: 21.4375rem;
     background-color: $white;
-    position: absolute;
+    z-index: 1;
     box-shadow: 0rem 0.125rem 0.3125rem rgb(19 24 44 / 10%);
     border-radius: 0.1875rem;
   }
@@ -111,11 +110,23 @@
     background: rgba(21, 132, 99, 0.07);
     border-radius: 1.25rem;
     padding: 0.25rem 0.5rem;
+    font-family: Titillum Web, sans-serif;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    color: $green;
+    font-weight: 600;
+    text-align: center;
   }
   &__orangeStat {
     background: rgba(201, 69, 21, 0.07);
     border-radius: 1.25rem;
     padding: 0.25rem 0.5rem;
+    font-family: Titillum Web, sans-serif;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    color: $red;
+    font-weight: 600;
+    text-align: center;
   }
 
   &__text {
@@ -188,9 +199,6 @@
     }
   }
   @include tablet {
-    &__background--gray {
-      height: 295.75rem;
-    }
     &__label {
       display: none;
     }
@@ -371,14 +379,14 @@
         justify-content: flex-start;
       }
       &--status {
-        margin-left: 5.5rem;
+        margin-left: 2.9375rem;
       }
       &--qty {
         margin-left: 6.8125rem;
         width: 5rem;
       }
       &--warehouse {
-        margin-left: 1.5625rem;
+        margin-left: 1.625rem;
         width: 5.125rem;
       }
     }

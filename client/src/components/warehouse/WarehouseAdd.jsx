@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory, Link } from "react-router-dom";
-
-
+import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
-const WarehouseEdit = () => {
-
+const WarehouseAdd = () => {
     const history = useHistory();
-
-    const { id } = useParams();
-    console.log("The id is: ", id);
-
     const emptyError = "This field is required.";
 
     const [formContents, setFormContents] = useState();
@@ -23,42 +16,9 @@ const WarehouseEdit = () => {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
 
-    useEffect(() => {
-        let warehouseToEdit = {};
-        axios
-            .get(`http://localhost:8080/api/warehouses/edit/${id}`)
-            .then((response) => {
-                warehouseToEdit = response.data;
-                console.log("warehouse details received")
-                console.log(warehouseToEdit);
-                console.log("Response data warehouse: ", response.data.name)
-                setFormContents({
-                    ...formContents, warehouseName: response.data.name,
-                    address: response.data.address,
-                    city: response.data.city,
-                    country: response.data.country,
-                    contactName: response.data.contact.name,
-                    position: response.data.contact.position,
-                    phone: response.data.contact.phone,
-                    email: response.data.contact.email
-                })
-                // console.log("The formContents: ", formContents.warehouseName);
-
-            })
-            .catch((err) => console.log(err));
-    }, [])
-
     const goToPreviousPath = () => {
         history.goBack();
     }
-
-    const changeHandler = (event) => {
-        const value = event.target.value;
-        setFormContents({
-            [event.target.name]: value,
-        })
-    }
-
 
     const validateForm = (formData) => {
         let isValid = true;
@@ -112,12 +72,9 @@ const WarehouseEdit = () => {
         } else if (!phonePattern.test(formData.get('phone'))) {
             isValid = false;
             setPhone({ error: "not a valid phone number" });
-
         } else {
             setPhone({ error: "" });
         }
-        console.log("phone error: ", phone.error)
-        console.log("formContents.phone: ", formContents.phone)
 
         const emailPattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 
@@ -130,17 +87,17 @@ const WarehouseEdit = () => {
         } else {
             setEmail({ error: "" });
         }
-
         return isValid;
     }
 
-    const editWarehouse = (event) => {
+    const addWarehouse = (event) => {
 
         event.preventDefault();
 
         setFormContents({
             ...formContents,
             [event.target.name]: event.target.value,
+
         });
 
         const formData = new FormData(event.target);
@@ -148,9 +105,9 @@ const WarehouseEdit = () => {
         if (validateForm(formData)) {
             console.log("passed validation");
             axios
-                .put(`http://localhost:8080/api/warehouses/edit/${id}`, Object.fromEntries(formData))
+                .post("http://localhost:8080/api/warehouses/add", Object.fromEntries(formData))
                 .then((response) => {
-                    alert("Warehouse Updated")
+                    alert("Warehouse Added");
                     history.goBack();
                 })
                 .catch((err) => console.log(err));
@@ -171,14 +128,13 @@ const WarehouseEdit = () => {
                 </div>
             </div>
 
-            <form onSubmit={editWarehouse}>
+            <form onSubmit={addWarehouse}>
                 <div className="card__details--container">
                     <h2>Warehouse Details</h2>
                     <div className="form-group">
                         <div className="form-label">Warehouse Name</div>
-                        <input onChange={changeHandler} type="text"
+                        <input type="text"
                             name="warehouseName"
-                            value={formContents && formContents.warehouseName}
                         />
                         <div className="text-danger">
                             {formContents && !formContents.warehouseName ? warehouseName.error : ""}
@@ -187,7 +143,7 @@ const WarehouseEdit = () => {
 
                     <div className="form-group">
                         <div className="form-label">Street Address</div>
-                        <input onChange={changeHandler} type="text" name="address" value={formContents && formContents.address}
+                        <input type="text" name="address"
                         />
                         <div className="text-danger">
                             {formContents && !formContents.address ? address.error : ""}
@@ -195,14 +151,14 @@ const WarehouseEdit = () => {
                     </div>
                     <div className="form-group">
                         <div className="form-label">City</div>
-                        <input onChange={changeHandler} type="text" name="city" value={formContents && formContents.city} />
+                        <input type="text" name="city" />
                         <div className="text-danger">
                             {formContents && !formContents.city ? city.error : ""}
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="form-label">Country</div>
-                        <input onChange={changeHandler} type="text" name="country" value={formContents && formContents.country} />
+                        <input type="text" name="country" />
                         <div className="text-danger">
                             {formContents && !formContents.country ? country.error : ""}
                         </div>
@@ -212,37 +168,36 @@ const WarehouseEdit = () => {
                     <h2>Contact Details</h2>
                     <div className="form-group">
                         <div className="form-label">Contact Name</div>
-                        <input onChange={changeHandler} type="text" name="contactName" value={formContents && formContents.contactName} />
+                        <input type="text" name="contactName" />
                         <div className="text-danger">
                             {formContents && !formContents.contactName ? contactName.error : ""}
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="form-label">Position</div>
-                        <input onChange={changeHandler} type="text" name="position" value={formContents && formContents.position} />
+                        <input type="text" name="position" />
                         <div className="text-danger">
                             {formContents && !formContents.position ? position.error : ""}
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="form-label">Phone Number</div>
-                        <input onChange={changeHandler} type="text" name="phone" value={formContents && formContents.phone} placeholder="(xxx) xxx-xxxx" />
+                        <input type="text" name="phone" placeholder="(xxx) xxx-xxxx" />
                         <div className="text-danger">
-                            {formContents && phone.error ? phone.error : ""}
+                            {formContents && !formContents.phone ? phone.error : ""}
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="form-label">Email</div>
-                        <input onChange={changeHandler} type="text" name="email" value={formContents && formContents.email} />
+                        <input type="text" name="email" />
                         <div className="text-danger">
-                            {formContents && email.error ? email.error : ""}
+                            {formContents && !formContents.email ? email.error : ""}
                         </div>
                     </div>
                 </div>
                 <div className="form__button-group">
                     <button onClick={goToPreviousPath} className="btn">Cancel</button>
-
-                    <button className="btn btn-primary" type="submit">Save</button>
+                    <button className="btn btn-primary" type="submit">+ Add Warehouse</button>
                 </div>
             </form>
         </>
@@ -250,4 +205,4 @@ const WarehouseEdit = () => {
 }
 
 
-export default WarehouseEdit;
+export default WarehouseAdd;

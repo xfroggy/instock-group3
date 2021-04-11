@@ -86,7 +86,7 @@ router.post(
           response.status(201).send("warehouse added");
         });
       } catch (error) {
-        response.status(501).json({
+        response.status(500).json({
           error: error.message,
         });
       }
