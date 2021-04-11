@@ -25,6 +25,8 @@ router.get("/", (req, res) => {
   res.send(list);
 });
 
+// SINGLE WAREHOUSE FROM WAREHOUSE LIST
+
 router.get("/:id", (req, res) => {
   const warehousesData = fs.readFileSync(path + "/warehouses.json", "utf-8");
   const warehouseArr = JSON.parse(warehousesData);
@@ -32,6 +34,34 @@ router.get("/:id", (req, res) => {
     (item) => item.id === req.params.id
   );
   res.send(singleWarehouse);
+});
+
+// DELETE A SINGLE WAREHOUSE
+
+router.delete("/:id", (req, res) => {
+  //get the single warehouse
+  const warehousesData = fs.readFileSync(path + "/warehouses.json", "utf-8");
+  const warehouseArr = JSON.parse(warehousesData);
+  const singleWarehouse = warehouseArr.find(
+    (item) => item.id === req.params.id
+  );
+  //get index of warehouse
+  const indexWarehouse = warehouseArr.findIndex(singleWarehouse);
+  console.log(indexWarehouse);
+
+  //splice item from array
+  warehouseArr.splice(indexWarehouse);
+
+  //delete the previous file
+  fs.unlinkSync(path + "/warehouses.json");
+
+  //create string version of data
+  const stringData = JSON.stringify(warehouseArr);
+  //create file with new data
+  fs.appendFileSync(path + "/warehouses.json", stringData, function (err) {
+    if (err) throw err;
+    console.log("new file has been created");
+  });
 });
 
 // POST - ADD A WAREHOUSE
