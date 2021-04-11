@@ -16,7 +16,7 @@ function header() {
               className="header__warehouse"
               activeClassName="header__warehouse--active"
             >
-              <h4>Warehouses</h4>{" "}
+              <h4 className="header__margin">Warehouses</h4>{" "}
             </NavLink>
             <NavLink
               to="/inventory"
