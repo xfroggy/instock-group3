@@ -9,7 +9,9 @@ const ItemDetail = ({ match }) => {
   useEffect(() => {
     axios
       .get(`/api/inventories/edit/${match.params.id}`)
+
       .then((res) => {
+        console.log(res.data);
         setIventoryItem(res.data);
       })
       .catch((err) => {
@@ -38,7 +40,7 @@ const ItemDetail = ({ match }) => {
           </div>
         </div>
         <h6>WAREHOUSE:</h6>
-        <div>{inventoryItem.warehouse}</div>
+        <div>{inventoryItem.warehouseName}</div>
       </div>
     </div>
   );

@@ -21,12 +21,10 @@
 .inventory__top {
   display: flex;
   border-bottom: 1px solid $slate;
-  // margin-top: 1rem;
   padding: 1.5rem;
 }
 
 .arrow {
-  // margin-left: 16px;
   margin-right: 16px;
 }
 
@@ -51,11 +49,8 @@
   height: 20px;
   background: rgba(21, 132, 99, 0.07);
   border-radius: 20px;
-  // position: static;
   width: 45px;
   height: 16px;
-  // left: 8px;
-  // top: 4px;
   font-family: Titillium Web;
   font-style: normal;
   font-weight: 600;
@@ -67,4 +62,8 @@
 
 .inventory__details {
   display: flex;
+}
+
+.inventory__quantity {
+  margin-left: 5rem;
 }

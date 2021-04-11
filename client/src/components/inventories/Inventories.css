@@ -67,4 +67,8 @@
 
 .inventory__details {
   display: flex;
+}
+
+.inventory__quantity {
+  margin-left: 5rem;
 }/*# sourceMappingURL=Inventories.css.map */
