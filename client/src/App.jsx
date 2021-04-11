@@ -3,6 +3,7 @@ import "./App.scss";
 import Header from "./components/header/header.jsx";
 import Footer from "./components/Footer/Footer";
 import WarehouseDetails from "./components/warehouse/WarehouseDetails";
+import ItemDetail from "./components/inventories/Inventories";
 import WarehousePage from "./pages/Warehouse/WarehousePage";
 import WarehouseEdit from "./components/warehouse/WarehouseEdit";
 import WarehouseAdd from "./components/warehouse/WarehouseAdd";
@@ -20,7 +21,7 @@ function App() {
           <Route exact path="/warehouses/add" component={WarehouseAdd} />
           <Route exact path="/inventory" />
           <Route path="/warehouses/:id" component={WarehouseDetails} />
-          <Route path="/inventory/:id" />
+          <Route exact path="/inventory/:id" component={ItemDetail} />
         </Switch>
         <Footer />
       </Router>
