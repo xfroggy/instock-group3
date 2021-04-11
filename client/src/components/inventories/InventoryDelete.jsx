@@ -5,6 +5,7 @@ import "./InventoryDelete.scss";
 const DeleteConfirmation = ({ showModal, hideModal, confirmModal, id, item, type, message }) => {
 
     return (
+
         <Modal className="modal-custom" show={showModal} onHide={hideModal}>
             <Modal.Header closeButton>
                 <Modal.Title>Delete {item} inventory item?</Modal.Title>
@@ -18,7 +19,14 @@ const DeleteConfirmation = ({ showModal, hideModal, confirmModal, id, item, type
                     Delete
                 </Button>
             </Modal.Footer>
+            <div class="modal-overlay">
+            </div>
+
+
         </Modal>
+
+
+
     )
 }
 
