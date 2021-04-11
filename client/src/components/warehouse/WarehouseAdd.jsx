@@ -122,12 +122,12 @@ const WarehouseAdd = () => {
 
     return (
         <>
-            <section className="warehouse__parent">
-                <div className="warehouse__background--gray">
-                    <div className="warehouse__background"></div>
-                    <div className="warehouse__firstRow">
-                        <div className="warehouse__firstRow--box">
-                            <div className="warehouse__container">
+            <section className="warehousePage__parent">
+                <div className="warehousePage__background--gray">
+                    <div className="warehousePage__background"></div>
+                    <div className="warehousePage__firstRow">
+                        <div className="warehousePage__firstRow--box">
+                            <div className="warehousePage__container">
                                 <div className="card__box--row">
 
                                     <div className="card__top--container">
