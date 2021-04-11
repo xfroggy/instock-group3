@@ -1,0 +1,13 @@
+@import "../../partials/mixins.scss";
+@import "../../partials/partials.scss";
+
+.inventories__item--card {
+  position: absolute;
+  left: 4.17%;
+  right: 4.17%;
+  top: 22.98%;
+  bottom: 31.84%;
+  background: $white;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+}
