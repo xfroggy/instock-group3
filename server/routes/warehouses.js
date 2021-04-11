@@ -88,6 +88,7 @@ router.post(
       .send(
         `Validation passed and here's the id you need to update:  ${request.body.warehouseName}, ${request.body.address}, ${request.body.city},${request.body.country},${request.body.contactName}, ${request.body.position}, ${request.body.phone}, ${request.body.email}`
       );
+
     // READ THE JSON FILE AND PARSE
     fs.readFile(`${path}/warehouses.json`, "utf8", (err, warehouseData) => {
       if (err) {
@@ -95,6 +96,7 @@ router.post(
         return;
       }
       warehouseData = JSON.parse(warehouseData);
+
       //UPDATE VALUES IN CURRENT WAREHOUSE WITH NEW VALUES
       warehouseData.push({
         id: uuidv4(),
@@ -128,6 +130,8 @@ router.post(
   }
 );
 
+// PUT - FOR EDITING A WAREHOUSE
+
 router.put(
   "/edit/:id",
   [
@@ -151,7 +155,8 @@ router.put(
         `Validation passed and here's the id you need to update: ${request.params.id}, ${request.body.warehouseName}, ${request.body.address}, ${request.body.city},${request.body.country},${request.body.contactName}, ${request.body.position}, ${request.body.phone}, ${request.body.email}`
       );
 
-    // // READ THE JSON FILE AND PARSE
+    // READ THE JSON FILE AND PARSE
+
     fs.readFile(`${path}/warehouses.json`, "utf8", (err, warehouseData) => {
       if (err) {
         console.error(err);
