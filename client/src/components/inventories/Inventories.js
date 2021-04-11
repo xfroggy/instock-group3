@@ -16,7 +16,7 @@ const ItemDetail = ({ match }) => {
   }, [match.params.id]);
 
   return (
-    <div className="inventories__container">
+    <div className="inventory__container">
       <h1>{inventoryItem.itemName}</h1>
       <div>{inventoryItem.description}</div>
       <div>{inventoryItem.category}</div>
