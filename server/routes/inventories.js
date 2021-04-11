@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const fs = require("fs");
 const path = require("path").resolve(__dirname, "../data");
+const { v4: uuidv4 } = require("uuid");
 
 router.get("/", (req, res) => {
   const inventoryList = (filePath) => {
@@ -18,6 +19,40 @@ router.get("/edit/:id", (req, res) => {
     (item) => item.id === req.params.id
   );
   res.send(singleInventories);
+});
+
+router.post("/newitem", (request, response) => {
+  fs.readFile(`${path}/inventories.json`, "utf8", (err, inventoryData) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    inventoryData = JSON.parse(inventoryData);
+    inventoryData.push({
+      id: uuidv4(),
+      name: request.body.inventoryName,
+      category: request.body.category,
+      description: request.body.description,
+      status: request.body.status,
+      quantity: request.body.quantity,
+    });
+    inventoryData = JSON.stringify(inventoryData);
+
+    try {
+      fs.writeFile(`${path}/inventories.json`, inventoryData, (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        response.status(201).send("inventory added");
+      });
+    } catch (error) {
+      response.status(500).json({
+        error: error.message,
+      });
+    }
+  });
 });
 
 module.exports = router;
