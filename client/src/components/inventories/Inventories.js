@@ -3,9 +3,12 @@ import axios from "axios";
 import "./Inventories.scss";
 import arrow from "../../assets/icons/arrow_back-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
+import { useHistory } from "react-router-dom";
 
 const ItemDetail = ({ match }) => {
+  let history = useHistory();
   const [inventoryItem, setIventoryItem] = useState({});
+
   useEffect(() => {
     axios
       .get(`/api/inventories/edit/${match.params.id}`)
@@ -18,13 +21,17 @@ const ItemDetail = ({ match }) => {
         console.log(err);
       });
   }, [match.params.id]);
-
+  function handleClick() {
+    history.push("/newitem");
+  }
   return (
     <div className="inventory__container">
       <div className="inventory__top">
         <img className="arrow" src={arrow} alt="arrow" />
         <h2>{inventoryItem.itemName}</h2>
-        <img className="edit" src={edit} alt="edit" />
+        <button onClick={handleClick}>
+          <img className="edit" src={edit} alt="edit" />
+        </button>
       </div>
       <div className="inventory__info">
         <h6>ITEM DESCRIPTION:</h6>

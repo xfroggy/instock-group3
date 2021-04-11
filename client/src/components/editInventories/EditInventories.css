@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Titillium Web Regular";
+  src: url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+}
+@font-face {
+  font-family: "Titillium Web Semi-Bold";
+  src: url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
+}
+.inventories__item--card {
+  position: absolute;
+  left: 4.17%;
+  right: 4.17%;
+  top: 22.98%;
+  bottom: 31.84%;
+  background: #ffffff;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+}/*# sourceMappingURL=EditInventories.css.map */

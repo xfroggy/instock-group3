@@ -7,12 +7,12 @@ import ItemDetail from "./components/inventories/Inventories";
 import WarehousePage from "./pages/Warehouse/WarehousePage";
 import WarehouseEdit from "./components/warehouse/WarehouseEdit";
 import WarehouseAdd from "./components/warehouse/WarehouseAdd";
+import EditInventory from "./components/editInventories/EditInventories";
 
 function App() {
   return (
     <div>
       <Router>
-
         <Header />
         <Switch>
           <Route exact path="/" />
@@ -22,6 +22,7 @@ function App() {
           <Route exact path="/inventory" />
           <Route path="/warehouses/:id" component={WarehouseDetails} />
           <Route exact path="/inventory/:id" component={ItemDetail} />
+          <Route exact path="/newitem" component={EditInventory} />
         </Switch>
         <Footer />
       </Router>
