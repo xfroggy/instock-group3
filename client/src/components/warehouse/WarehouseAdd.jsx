@@ -5,7 +5,8 @@ import axios from 'axios';
 
 const WarehouseAdd = () => {
     const history = useHistory();
-    const emptyError = "This field is required.";
+    const emptyError = `<div class="danger-icon"><div class="text-danger">This field is required.</div></div>`;
+
 
     const [formContents, setFormContents] = useState();
     const [warehouseName, setWarehouseName] = useState("");
@@ -72,7 +73,7 @@ const WarehouseAdd = () => {
             setPhone({ error: emptyError });
         } else if (!phonePattern.test(formData.get('phone'))) {
             isValid = false;
-            setPhone({ error: "not a valid phone number" });
+            setPhone({ error: `<div class="danger-icon"><div class="text-danger">Not valid phone number format.</div></div>` });
         } else {
             setPhone({ error: "" });
         }
@@ -84,7 +85,7 @@ const WarehouseAdd = () => {
             setEmail({ error: emptyError });
         } else if (!emailPattern.test(formData.get('email'))) {
             isValid = false;
-            setEmail({ error: "Not valid email syntax" });
+            setEmail({ error: `<div class="danger-icon"><div class="text-danger">Not valid email syntax.</div></div>` });
         } else {
             setEmail({ error: "" });
         }
@@ -121,108 +122,111 @@ const WarehouseAdd = () => {
 
     return (
         <>
-            {/* <div className="card__container">
-                <div className="form__container">
-                    <div className="card__header--container">
-                        <div className="card__arrow"></div>
-                        <h1 className="card__header--title">Add Warehouse</h1>
-                    </div> */}
-
             <section className="warehouse__parent">
                 <div className="warehouse__background--gray">
                     <div className="warehouse__background"></div>
                     <div className="warehouse__firstRow">
                         <div className="warehouse__firstRow--box">
                             <div className="warehouse__container">
-                                <div className="warehouse__box--row">
+                                <div className="card__box--row">
 
                                     <div className="card__top--container">
                                         <div className="card__arrow"></div>
                                         <h1 className="card__top--title">Add New Warehouse</h1>
                                     </div>
+                                </div>
 
 
-
-                                    <form onSubmit={addWarehouse}>
-                                        <div className="card__details--container warehouse__tableRow">
+                                <form onSubmit={addWarehouse}>
+                                    <div className="card__horizontal">
+                                        <div className="card__details--container--first">
                                             <h2 className="card__details--title">Warehouse Details</h2>
                                             <div className="form__group">
                                                 <div className="form__label">Warehouse Name</div>
-                                                <input className="form__input" type="text"
+                                                <input className="form__input" style={{ border: warehouseName.error ? '1px solid red' : '' }} type="text"
                                                     name="warehouseName"
                                                     placeholder="Warehouse Name"
                                                 />
-                                                <div className="text-danger">
-                                                    {formContents && !formContents.warehouseName ? warehouseName.error : ""}
+                                                <div className="error__container">
+                                                    {formContents && !formContents.warehouseName ?
+                                                        <div dangerouslySetInnerHTML={{ __html: warehouseName.error }}></div> : ""}
                                                 </div>
                                             </div>
 
                                             <div className="form__group">
                                                 <div className="form__label">Street Address</div>
-                                                <input className="form__input" type="text" name="address"
+                                                <input className="form__input" style={{ border: address.error ? '1px solid red' : '' }} type="text" name="address"
                                                     placeholder="Street Address"
                                                 />
-                                                <div className="text-danger">
-                                                    {formContents && !formContents.address ? address.error : ""}
+                                                <div className="error__container">
+                                                    {formContents && !formContents.address ?
+                                                        <div dangerouslySetInnerHTML={{ __html: address.error }}></div> : ""}
                                                 </div>
                                             </div>
                                             <div className="form__group">
                                                 <div className="form__label">City</div>
-                                                <input className="form__input" type="text" name="city" placeholder="City" />
-                                                <div className="text-danger">
-                                                    {formContents && !formContents.city ? city.error : ""}
+                                                <input className="form__input" style={{ border: city.error ? '1px solid red' : '' }} type="text" name="city" placeholder="City" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.city ?
+                                                        <div dangerouslySetInnerHTML={{ __html: city.error }}></div> : ""}
                                                 </div>
                                             </div>
                                             <div className="form__group">
                                                 <div className="form__label">Country</div>
-                                                <input className="form__input" type="text" name="country" placeholder="Country" />
-                                                <div className="text-danger">
-                                                    {formContents && !formContents.country ? country.error : ""}
+                                                <input className="form__input" style={{ border: country.error ? '1px solid red' : '' }} type="text" name="country" placeholder="Country" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.country ?
+                                                        <div dangerouslySetInnerHTML={{ __html: country.error }}></div> : ""}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="card__details--container warehouse__tableRow">
-                                            <h2>Contact Details</h2>
+                                        <div className="card__details--container--second ">
+                                            <h2 className="card__details--title">Contact Details</h2>
                                             <div className="form__group">
                                                 <div className="form__label">Contact Name</div>
-                                                <input className="form__input" type="text" name="contactName" placeholder="Contact Name" />
-                                                <div className="text-danger">
-                                                    {formContents && !formContents.contactName ? contactName.error : ""}
+                                                <input className="form__input" style={{ border: contactName.error ? '1px solid red' : '' }} type="text" name="contactName" placeholder="Contact Name" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.contactName ?
+                                                        <div dangerouslySetInnerHTML={{ __html: contactName.error }}></div> : ""}
                                                 </div>
                                             </div>
                                             <div className="form__group">
                                                 <div className="form__label">Position</div>
-                                                <input className="form__input" type="text" name="position" placeholder="Position" />
-                                                <div className="text-danger">
-                                                    {formContents && !formContents.position ? position.error : ""}
+                                                <input className="form__input" style={{ border: position.error ? '1px solid red' : '' }} type="text" name="position" placeholder="Position" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.position ?
+                                                        <div dangerouslySetInnerHTML={{ __html: position.error }}></div> : ""}
                                                 </div>
                                             </div>
                                             <div className="form__group">
                                                 <div className="form__label">Phone Number</div>
-                                                <input className="form__input" type="text" name="phone" placeholder="Phone Number" />
-                                                <div className="text-danger">
-                                                    {formContents && !formContents.phone ? phone.error : ""}
+                                                <input className="form__input" style={{ border: phone.error ? '1px solid red' : '' }} type="text" name="phone" placeholder="Phone Number" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.phone ?
+                                                        <div dangerouslySetInnerHTML={{ __html: phone.error }}></div> : ""}
                                                 </div>
                                             </div>
                                             <div className="form__group">
                                                 <div className="form__label">Email</div>
-                                                <input className="form__input" type="text" name="email" placeholder="Email" />
-                                                <div className="text-danger">
-                                                    {formContents && !formContents.email ? email.error : ""}
+                                                <input className="form__input" style={{ border: email.error ? '1px solid red' : '' }} type="text" name="email" placeholder="Email" />
+                                                <div className="error__container">
+                                                    {formContents && !formContents.email ?
+                                                        <div dangerouslySetInnerHTML={{ __html: email.error }}></div> : ""}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="form__button-group">
-                                            <button onClick={goToPreviousPath} className="btn-clear">Cancel</button>
-                                            <button className="btn-add" type="submit">+ Add Warehouse</button>
-                                        </div>
-                                    </form>
+                                    </div>
+                                    <div className="form__button-group">
+                                        <button onClick={goToPreviousPath} className="btn-clear">Cancel</button>
+                                        <button className="btn-add" type="submit">+ Add Warehouse</button>
+                                    </div>
+                                </form>
 
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </section>
         </>
     )
