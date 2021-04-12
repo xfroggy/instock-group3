@@ -13,7 +13,6 @@ import WarehouseAdd from "./components/warehouse/WarehouseAdd";
 import InventoryEdit from "./components/inventories/InventoryEdit";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function App() {
   return (
     <div>
@@ -29,9 +28,12 @@ function App() {
           <Route exact path="/warehouses/edit/:id" component={WarehouseEdit} />
           <Route exact path="/warehouses/add" component={WarehouseAdd} />
           <Route path="/warehouses/:id" component={WarehouseDetails} />
+          <Route exact path="/inventory/:id" component={ItemDetail} />
+          <Route exact path="/newitem" component={EditInventory} />
           <Route exact path="/inventory/edit/:id" component={InventoryEdit} />
           <Route exact path="/inventory/:id" component={ItemDetail} />
           {/* <Route exact path="/newitem" component={EditInventory} /> */}
+
         </Switch>
         <Footer />
       </Router>
