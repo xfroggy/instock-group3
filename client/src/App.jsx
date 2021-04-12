@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "./App.scss";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/header/header.jsx";
 
 import Footer from "./components/Footer/Footer";
@@ -9,7 +10,8 @@ import WarehousePage from "./pages/Warehouse/WarehousePage";
 import InventoryPage from "./pages/Inventory/InventoryPage";
 import WarehouseEdit from "./components/warehouse/WarehouseEdit";
 import WarehouseAdd from "./components/warehouse/WarehouseAdd";
-import EditInventory from "./components/editInventories/EditInventories";
+import InventoryEdit from "./components/inventories/InventoryEdit";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         <Header />
 
         <Switch>
-          <Route exact path="/" />
+          <Route exact path="/">
+            <Redirect to="/warehouses" />
+          </Route>
           <Route exact path="/warehouses" component={WarehousePage} />
           <Route exact path="/inventory" component={InventoryPage} />
           <Route exact path="/warehouses/edit/:id" component={WarehouseEdit} />
@@ -26,6 +30,10 @@ function App() {
           <Route path="/warehouses/:id" component={WarehouseDetails} />
           <Route exact path="/inventory/:id" component={ItemDetail} />
           <Route exact path="/newitem" component={EditInventory} />
+          <Route exact path="/inventory/edit/:id" component={InventoryEdit} />
+          <Route exact path="/inventory/:id" component={ItemDetail} />
+          {/* <Route exact path="/newitem" component={EditInventory} /> */}
+
         </Switch>
         <Footer />
       </Router>
