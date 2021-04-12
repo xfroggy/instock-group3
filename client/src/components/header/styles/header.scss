@@ -37,7 +37,6 @@
     align-items: center;
     &:hover {
       text-decoration: underline;
-      color: $white;
     }
     &--active {
       background-color: $black;
@@ -61,8 +60,7 @@
     }
 
     &:hover {
-      text-decoration: underline;
-      color: $white;
+      text-decoration: $white underline;
     }
   }
   @include mobile {
