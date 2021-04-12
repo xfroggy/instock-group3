@@ -1,14 +1,69 @@
 @import "../../partials/mixins.scss";
 @import "../../partials/partials.scss";
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .inventory__container {
   position: absolute;
   left: 4.27%;
   right: 4.27%;
-  top: 20.39%;
-  bottom: 24.89%;
+  top: 23.39%;
+  bottom: 16.89%;
   font-family: "Titillium Web";
   background-color: $white;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
+}
+
+.inventory__top {
+  display: flex;
+  border-bottom: 1px solid $slate;
+  padding: 1.5rem;
+}
+
+.arrow {
+  margin-right: 16px;
+}
+
+.edit {
+  margin-left: 4rem;
+}
+
+.inventory__info {
+  margin-top: 1rem;
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  color: $black;
+  margin-left: 0.5rem;
+}
+
+.inventory__status {
+  padding: 3px 8px;
+  width: 44px;
+  height: 20px;
+  background: rgba(21, 132, 99, 0.07);
+  border-radius: 20px;
+  width: 45px;
+  height: 16px;
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: $green;
+}
+
+.inventory__details {
+  display: flex;
+}
+
+.inventory__quantity {
+  margin-left: 5rem;
 }

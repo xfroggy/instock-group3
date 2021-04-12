@@ -201,6 +201,9 @@ button {
     border: 1px solid $slate;
     margin-left: 0;
     margin-bottom: 0;
+    border-radius: 20px;
+    
+    
 
     @include tablet {
         width: 4.5rem; // 72px;
@@ -219,6 +222,7 @@ button {
     width: 8.6875rem; //139px;
     margin-left: 1rem;
     margin-bottom: 0;
+    border-radius: 20px;
 
     &:hover, &:focus {
         background-color: $graphite;
