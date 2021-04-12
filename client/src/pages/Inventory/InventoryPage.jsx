@@ -162,7 +162,9 @@ export default function InventoryPage() {
                         <div
                           onClick={() => { showDeleteModal("inventory", `${list.id}`, `${list.itemName}`) }}
                           className="inventoryPage__deleteImg"></div>
-                        <div className="inventoryPage__editImg"></div>
+                        <Link to={`/inventory/edit/${list.id}`}>
+                          <div className="inventoryPage__editImg"></div>
+                        </Link>
                       </div>
                     </div>
                   ))}

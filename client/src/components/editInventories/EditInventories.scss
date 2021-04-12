@@ -1,13 +1,137 @@
 @import "../../partials/mixins.scss";
 @import "../../partials/partials.scss";
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Titillium Web;
+}
+
 .inventories__item--card {
   position: absolute;
   left: 4.17%;
   right: 4.17%;
   top: 22.98%;
-  bottom: 31.84%;
+  bottom: 6.84%;
   background: $white;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   border-radius: 3px;
+}
+
+.inventory__head {
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  color: $black;
+  border-bottom: 1px solid $cloud;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.arrow2 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.inventory__body {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.inventory__title {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  color: $black;
+}
+
+.item__box {
+  width: 264px;
+  height: 36px;
+  background: $white;
+  border: 1px solid $cloud;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.description__box {
+  width: 270px;
+  height: 100px;
+  background: $white;
+  border: 1px solid $cloud;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.category__box {
+  width: 273px;
+  height: 36px;
+  left: 40px;
+  top: 593px;
+  background: $white;
+  border: 1px solid $cloud;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.quantity__container {
+  display: flex;
+  flex-direction: column;
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  color: $black;
+  margin-left: 1rem;
+  margin-top: 2rem;
+}
+
+.quantity__box {
+  width: 277px;
+  height: 36px;
+  left: 40px;
+  top: 806px;
+  background: $white;
+  border: 1px solid $cloud;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.status__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  left: 10.67%;
+  right: 85.07%;
+  top: 72.21%;
+  bottom: 26.17%;
+  background: $white;
+  box-sizing: border-box;
+  margin-left: 1rem;
+}
+
+.status__label {
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  color: $black;
+  margin-left: 1rem;
+}
+
+.item__avail {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
