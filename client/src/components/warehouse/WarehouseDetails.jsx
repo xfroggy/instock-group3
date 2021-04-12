@@ -21,23 +21,6 @@ function WarehouseDetails({ match }) {
     getData();
   }, []);
 
-  /// inventory info
-  const [data, setData] = useState([]);
-  const url = "http://localhost:8080/api/";
-  useEffect(() => {
-    getInventory();
-  }, []);
-
-  const getInventory = () => {
-    axios
-      .get(`${url}inventories/`)
-      .then((res) => {
-        const Inventory = res.data;
-        setData(Inventory);
-      })
-      .catch((error) => console.error(`Error: ${error}`));
-  };
-
   if (!warehouse) return null;
   return (
     <div>
@@ -76,55 +59,6 @@ function WarehouseDetails({ match }) {
             </div>
           </div>
         </div>
-        {/* Miguel wish list working on this  */}
-        {data &&
-          data.map((list, index) => (
-            <div className="inventoryPage__tableRow">
-              <div className="inventoryPage__tableFlex">
-                <div className="inventoryPage__tableColumn">
-                  <div className="inventoryPage__rowAlign">
-                    <span className="inventoryPage__label">INVENTORY ITEM</span>
-                    <Link
-                      to={`/inventory/${list.id}`}
-                      className="inventoryPage__textDec"
-                    >
-                      <span className="inventoryPage__name">
-                        {list.itemName}
-                      </span>
-                    </Link>
-                  </div>
-                  <div className="inventoryPage__rowAlign--cat">
-                    <span className="inventoryPage__label">CATEGORY</span>
-                    <span className="inventoryPage__text">{list.category}</span>
-                  </div>
-                </div>
-                <div className="inventoryPage__tableColumn">
-                  <div className="inventoryPage__rowAlign--status">
-                    <span className="inventoryPage__label">STATUS</span>
-
-                    <span
-                      className={
-                        list.status === "In Stock"
-                          ? "inventoryPage__greenStat"
-                          : "inventoryPage__orangeStat"
-                      }
-                    >
-                      {list.status}
-                    </span>
-                  </div>
-
-                  <span className="inventoryPage__label">QTY</span>
-                  <span className="inventoryPage__rowAlign--qty">
-                    <span>{list.quantity}</span>
-                  </span>
-                </div>
-              </div>
-              <div className="inventoryPage__imgBox">
-                <div className="inventoryPage__deleteImg"></div>
-                <div className="inventoryPage__editImg"></div>
-              </div>
-            </div>
-          ))}
       </div>
     </div>
   );
