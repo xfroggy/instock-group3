@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 
 import axios from 'axios';
@@ -9,7 +9,6 @@ const WarehouseEdit = () => {
     const history = useHistory();
 
     const { id } = useParams();
-    console.log("The id is: ", id);
 
     const emptyError = `<div class="danger-icon"><div class="text-danger">This field is required.</div></div>`;
 
@@ -29,9 +28,7 @@ const WarehouseEdit = () => {
             .get(`http://localhost:8080/api/warehouses/edit/${id}`)
             .then((response) => {
                 warehouseToEdit = response.data;
-                console.log("warehouse details received")
-                console.log(warehouseToEdit);
-                console.log("Response data warehouse: ", response.data.name)
+
                 setFormContents({
                     ...formContents, warehouseName: response.data.name,
                     address: response.data.address,
@@ -42,7 +39,6 @@ const WarehouseEdit = () => {
                     phone: response.data.contact.phone,
                     email: response.data.contact.email
                 })
-                // console.log("The formContents: ", formContents.warehouseName);
 
             })
             .catch((err) => console.log(err));
@@ -116,8 +112,6 @@ const WarehouseEdit = () => {
         } else {
             setPhone({ error: "" });
         }
-        console.log("phone error: ", phone.error)
-        console.log("formContents.phone: ", formContents.phone)
 
         const emailPattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 
@@ -163,16 +157,16 @@ const WarehouseEdit = () => {
 
     return (
         <>
-            <section className="warehouse__parent">
-                <div className="warehouse__background--gray">
-                    <div className="warehouse__background"></div>
-                    <div className="warehouse__firstRow">
-                        <div className="warehouse__firstRow--box">
-                            <div className="warehouse__container">
+            <section className="warehousePage__parent">
+                <div className="warehousePage__background--gray">
+                    <div className="warehousePage__background"></div>
+                    <div className="warehousePage__firstRow">
+                        <div className="warehousePage__firstRow--box">
+                            <div className="warehousePage__container">
                                 <div className="card__box--row">
 
                                     <div className="card__top--container">
-                                        <div className="card__arrow"></div>
+                                        <div onClick={goToPreviousPath} className="card__arrow"></div>
                                         <h1 className="card__top--title">Edit Warehouse</h1>
                                     </div>
                                 </div>

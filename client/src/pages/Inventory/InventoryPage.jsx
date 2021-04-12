@@ -21,11 +21,11 @@ export default function InventoryPage() {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-  console.log(data);
+  //console.log(data);
 
   const [deleteMessage, setDeleteMessage] = useState(null);
   const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
-  const [warehouseMessage, setWarehouseMessage] = useState(null);
+  const [inventoryMessage, setInventoryMessage] = useState(null);
   const [type, setType] = useState(null);
   const [id, setId] = useState(null);
   const [item, setItem] = useState(null)
@@ -34,8 +34,8 @@ export default function InventoryPage() {
     setType(type);
     setId(id);
     setItem(item);
-    setWarehouseMessage(null);
-    console.log("Here's my values:", type, id, item)
+    setInventoryMessage(null);
+    console.log('Here my data to delete: ', type, id, item);
 
     if (type === "inventory") {
       setDeleteMessage(`Please confirm that you'd like to delete ${item} from the inventory list.  You won't be able to undo this action.`)
@@ -50,8 +50,17 @@ export default function InventoryPage() {
 
   const submitDelete = (type, id) => {
     if (type === "inventory") {
-      setWarehouseMessage("The warehouse was successfully deleted");
+
+      // axios
+      //   .delete(`http://localhost:8080/api/inventories/delete/` + id)
+      //   .then((response) => {
+      //     console.log(response);
+
+      //   }).catch((error) => console.error(`Error: ${error}`));
+
     }
+    setInventoryMessage("The inventory item was successfully deleted");
+
 
     setDisplayConfirmationModal(false);
   }
