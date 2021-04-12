@@ -21,19 +21,19 @@ function WarehouseDetails({ match }) {
 
     getData();
   }, []);
-
+  /// inventory info
   const [data, setData] = useState([]);
   const url = "http://localhost:8080/api/";
   useEffect(() => {
-    getAllInventory();
+    getInventory();
   }, []);
 
-  const getAllInventory = () => {
+  const getInventory = () => {
     axios
-      .get(`${url}inventories`)
+      .get(`${url}inventories/`)
       .then((res) => {
-        const allInventory = res.data;
-        setData(allInventory);
+        const Inventory = res.data;
+        setData(Inventory);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
@@ -113,10 +113,6 @@ function WarehouseDetails({ match }) {
                   <span className="inventoryPage__label">QTY</span>
                   <span className="inventoryPage__rowAlign--qty">
                     <span>{list.quantity}</span>
-                  </span>
-                  <span className="inventoryPage__label">WAREHOUSE</span>
-                  <span className="inventoryPage__rowAlign--warehouse">
-                    <span>{list.warehouseName}</span>
                   </span>
                 </div>
               </div>
