@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ArrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import "./WarehouseDetails.scss";
-import { Link } from "react-router-dom";
 
 function WarehouseDetails({ match }) {
   const [warehouse, setWarehouse] = useState(null);
@@ -21,6 +20,7 @@ function WarehouseDetails({ match }) {
 
     getData();
   }, []);
+
   /// inventory info
   const [data, setData] = useState([]);
   const url = "http://localhost:8080/api/";
@@ -76,6 +76,7 @@ function WarehouseDetails({ match }) {
             </div>
           </div>
         </div>
+        {/* Miguel wish list working on this  */}
         {data &&
           data.map((list, index) => (
             <div className="inventoryPage__tableRow">
