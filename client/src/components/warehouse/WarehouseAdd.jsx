@@ -131,7 +131,7 @@ const WarehouseAdd = () => {
                                 <div className="card__box--row">
 
                                     <div className="card__top--container">
-                                        <div className="card__arrow"></div>
+                                        <div onClick={goToPreviousPath} className="card__arrow"></div>
                                         <h1 className="card__top--title">Add New Warehouse</h1>
                                     </div>
                                 </div>
