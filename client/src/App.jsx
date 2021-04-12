@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "./App.scss";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/header/header.jsx";
 
 import Footer from "./components/Footer/Footer";
