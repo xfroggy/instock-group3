@@ -13,6 +13,7 @@ import WarehouseAdd from "./components/warehouse/WarehouseAdd";
 import InventoryEdit from "./components/inventories/InventoryEdit";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function App() {
   return (
     <div>
@@ -31,7 +32,6 @@ function App() {
           <Route path="/warehouses/:id" component={WarehouseDetails} />
           <Route exact path="/inventory/:id" component={ItemDetail} />
           {/* <Route exact path="/newitem" component={EditInventory} /> */}
-
         </Switch>
         <Footer />
       </Router>
