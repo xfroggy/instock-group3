@@ -21,6 +21,16 @@ router.get("/edit/:id", (req, res) => {
   res.send(singleInventories);
 });
 
+// get request for list of Inventories
+router.get("/:id", (req, res) => {
+  const inventoriesData = fs.readFileSync(path + "/inventories.json", "utf-8");
+  const inventoriesArr = JSON.parse(inventoriesData);
+  const inventories = inventoriesArr.find(
+    (items) => items.warehouseID === req.params.id
+  );
+  res.send(inventories);
+});
+
 router.post("/newitem", (request, response) => {
   fs.readFile(`${path}/inventories.json`, "utf8", (err, inventoryData) => {
     if (err) {
@@ -58,10 +68,8 @@ router.post("/newitem", (request, response) => {
 module.exports = router;
 
 router.delete("/delete/:id", (request, response) => {
-
   // READ THE JSON FILE AND PARSE
   fs.readFile(`${path}/inventories.json`, "utf8", (err, inventoryData) => {
-
     if (err) {
       console.error(err);
       return;
